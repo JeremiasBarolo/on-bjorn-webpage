@@ -2036,9 +2036,7 @@
 
 .logo{
 	min-width: 19vw;
-	min-height: 7vh;
-	width: 19vw;
-	height:7vh;
+	aspect-ratio: 19/7;
 	margin-left: 4vw;
 }
 
