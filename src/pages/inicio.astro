@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Presentacion from '../components/inicio/Presentacion.astro'
+import Servicios from '../components/inicio/Servicios.astro'
+import Proyectos from '../components/inicio/Proyectos.astro'
+import Preguntas from '../components/inicio/Preguntas.astro'
+import Contacto from '../components/shared/Contacto.astro'
+---
+
+<Layout>
+	<main>
+		
+
+		<div class="page-wrapper">
+		
+				
+		
+		
+		
+<!-- ======================= Inicio ============================== -->
+				
+			<Presentacion />
+				
+
+
+<!-- ======================= Servicios ============================== -->
+		 	<Servicios />
+
+
+
+<!-- ======================= Proyectos ============================== -->
+
+			 <div class="section-title text-center">
+				<div class="section-title__tagline-box">
+					<span class="section-title__tagline">Proyectos</span>
+				</div>
+				<h2 class="section-title__title"> Estos Son Algunos de los Proyectos <br> en los que Participamos <br> 🙌</span></h2>
+			</div>
+
+
+					
+				<Proyectos />
+				
+		
+<!-- ======================= Contacto ============================== -->			
+		
+				
+			<!-- Free Trail Start -->
+
+<Contacto />
+
+<br>
+<br>
+
+<!-- ======================= Preguntas Frecuentes ============================== -->	
+
+				<Preguntas />
+
+				
+			
+</Layout>
+
+<style>
+	
+</style>

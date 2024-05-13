@@ -1,0 +1,138 @@
+---
+import Card from '../shared/Card.astro'
+
+---
+
+<!-- Solutions One Start -->
+<div class="solutions-one" id="services">
+    <div class="container">
+
+
+        <div class="section-title text-center">
+            <div class="section-title__tagline-box">
+                <span class="section-title__tagline">Servicios</span>
+            </div>
+            <h2 class="section-title__title"> Nuestros Servicios <br>
+                Para Ayudar a tu Emprendimiento 🔨</h2>
+        </div>
+
+
+        <div class="solutions-one__carousel" id="service-carrousel">
+            <div class="item active">
+                <Card  
+                icon='🌀'
+                title='Desarrollo Web'
+                content = 'Desarrollamos paginas web a medida para cada objetivo de nuestros clientes.'
+                
+                />
+            </div>
+            <div class="item">
+                <Card  
+                    icon='🎨'
+                    title='Rebranding'
+                    content='Transformamos la imagen de tu marca con un rebranding audaz y cautivador.'
+                />
+            </div>
+            <div class="item">
+                <Card  
+                    icon='👟'
+                    title='E-Commerce'
+                    content='Creamos tu negocio online para exponer tus productos y potenciar tus ventas.'
+                />
+            </div>
+            <div class="item">
+                <Card  
+                    icon='💼'
+                    title='Web Empresariales'
+                    content='Te ayudamos a dar el salto de calidad para profesionalizar tu empresa de forma online.'
+                />
+            </div>
+            <div class="item">
+                <Card  
+                    icon='📑'
+                    title='Portfolio Web Interactivo'
+                    content='Creamos una web profesional para destacar tu trabajo especializado, dando énfasis en tu imagen.'
+                />
+            </div>
+            <div class="item">
+                <Card  
+                    icon='📦'
+                    title='Sistemas de Stock'
+                    content='Desarrollamos tu sistema de stock hecho a medida para poder organizar tu emprendimiento.'
+                />
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+  
+    #service-carrousel {
+        display: flex;
+        overflow-x: hidden; 
+    }
+
+    .item {
+        flex: 0 0 auto;
+        width: calc(25% - 12px); /* Ajusta el ancho de cada elemento */
+        margin-right: 24px; /* Margen entre elementos */
+        scroll-snap-align: start;
+    }
+
+    .item:last-child {
+        margin-right: 2em; /* Elimina el margen del último elemento */
+    }
+
+    
+    .accordion-icon {
+        font-size: 24px;
+    }
+
+    .accordion-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .accordion-content {
+        font-size: 16px;
+        margin-top: 5px;
+    }
+
+    
+
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let isDragging = false;
+        let startPosition = 0;
+        let currentTranslate = 0;
+
+        const carousel = document.getElementById('service-carrousel');
+
+        carousel.addEventListener('mousedown', e => {
+            isDragging = true;
+            startPosition = e.pageX - carousel.offsetLeft;
+            currentTranslate = carousel.scrollLeft;
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            isDragging = false;
+        });
+
+        carousel.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        carousel.addEventListener('mousemove', e => {
+            if (!isDragging) return;
+            e.preventDefault();
+
+            const newPosition = e.pageX - carousel.offsetLeft;
+            const deltaX = newPosition - startPosition;
+            carousel.scrollLeft = currentTranslate - deltaX;
+        });
+    });
+</script>
