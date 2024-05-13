@@ -5,13 +5,17 @@
 ====================================================================
 
 ***/
+
+
 .error-page {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    z-index: 10;
+    margin-top: 20vh;
+    margin-bottom: 25vh;
+    
 }
 
 .error-page__shape-1 {

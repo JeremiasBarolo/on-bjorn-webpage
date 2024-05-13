@@ -1344,7 +1344,7 @@
 
 .mobile-menu .nav-logo img {
 	width: 80vw;
-	height: 10vh;
+	height: 7vh;
 }
 
 .mobile-menu-visible {
@@ -1402,7 +1402,7 @@
 	height: 100%;
 	max-height: 100%;
 	overflow-y: auto;
-	background-color: var(--thm-white);
+	background-color: var(--thm-black);
 	padding: 0px 30px 50px;
 	z-index: 5;
 	border-radius: 0px;
@@ -1547,7 +1547,7 @@
 	line-height: 24px;
 	padding: 12px 0px;
 	font-size: var(--font-14);
-	color: var(--thm-black);
+	color: white;
 	text-transform: capitalize;
 }
 
@@ -2036,8 +2036,9 @@
 
 .logo{
 	min-width: 19vw;
-	min-height: 9.4vh;
+	min-height: 7vh;
 	width: 19vw;
+	height:7vh;
 	margin-left: 4vw;
 }
 
