@@ -22,7 +22,8 @@
 ***/
 
 .main-header {
-	position: relative;
+	position: fixed;
+
 	display: block;
 	background-color: transparent;
 	width: 100%;
@@ -62,7 +63,8 @@
 .main-menu__wrapper {
 	position: relative;
 	display: block;
-	padding: 0 165px;
+	padding-left: 20px;
+	padding-right: 1.5em;
 }
 
 .main-header-one__logo-box {
@@ -1264,10 +1266,7 @@
 	color: var(--thm-white);
 }
 
-.logo{
-	width: 15vw;
-	padding: 0px;
-}
+
 
 
 
@@ -1344,7 +1343,8 @@
 }
 
 .mobile-menu .nav-logo img {
-	max-width: 200px;
+	width: 80vw;
+	height: 10vh;
 }
 
 .mobile-menu-visible {
@@ -2034,7 +2034,12 @@
 
 
 
-
+.logo{
+	min-width: 19vw;
+	min-height: 9.4vh;
+	width: 19vw;
+	margin-left: 4vw;
+}
 
 
 
@@ -2051,7 +2056,7 @@
 	}
 
 	.main-header-one__logo-box img{
-		width: 50vw;
+		width: 68vw;
 		height: 5vh;
 	}
 
@@ -2066,6 +2071,7 @@
 		visibility: hidden;
 		opacity: 0;
 	}
+	
 
 }
 

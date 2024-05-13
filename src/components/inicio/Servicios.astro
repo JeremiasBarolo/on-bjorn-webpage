@@ -99,40 +99,86 @@ import Card from '../shared/Card.astro'
         margin-top: 5px;
     }
 
-    
+    @media only screen and (max-width: 767px) {
+    .solutions-one__carousel {
+        overflow-x: scroll; /* Permitir desplazamiento horizontal en dispositivos móviles */
+        white-space: nowrap; /* Evitar el ajuste de línea */
+    }
+
+    .item {
+        display: inline-block; /* Alineación de elementos en línea */
+        width: calc(100% - 24px); /* Ancho del 100% del contenedor */
+        max-width: 300px;
+        max-height: auto; /* Ancho máximo para los elementos */
+        margin-right: 24px; /* Margen entre elementos */
+        vertical-align: top; /* Alinear elementos en la parte superior */
+        overflow: hidden; /* Ocultar cualquier desbordamiento */
+    }
+
+    /* Ajustes para el texto */
+    .item .card-content {
+    font-size: 14px; /* Tamaño de fuente más pequeño en dispositivos móviles */
+    word-wrap: break-word; /* Permite dividir palabras largas en líneas */
+    }
+}
+
+
+
+
 
 
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let isDragging = false;
-        let startPosition = 0;
-        let currentTranslate = 0;
+   document.addEventListener('DOMContentLoaded', function() {
+    let isDragging = false;
+    let startPosition = 0;
+    let currentTranslate = 0;
 
-        const carousel = document.getElementById('service-carrousel');
+    const carousel = document.getElementById('service-carrousel');
 
-        carousel.addEventListener('mousedown', e => {
-            isDragging = true;
-            startPosition = e.pageX - carousel.offsetLeft;
-            currentTranslate = carousel.scrollLeft;
-        });
-
-        carousel.addEventListener('mouseleave', () => {
-            isDragging = false;
-        });
-
-        carousel.addEventListener('mouseup', () => {
-            isDragging = false;
-        });
-
-        carousel.addEventListener('mousemove', e => {
-            if (!isDragging) return;
-            e.preventDefault();
-
-            const newPosition = e.pageX - carousel.offsetLeft;
-            const deltaX = newPosition - startPosition;
-            carousel.scrollLeft = currentTranslate - deltaX;
-        });
+    carousel.addEventListener('mousedown', e => {
+        isDragging = true;
+        startPosition = e.pageX - carousel.offsetLeft;
+        currentTranslate = carousel.scrollLeft;
     });
+
+    carousel.addEventListener('touchstart', e => {
+        isDragging = true;
+        const touch = e.touches[0];
+        startPosition = touch.pageX - carousel.offsetLeft;
+        currentTranslate = carousel.scrollLeft;
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+        isDragging = false;
+    });
+
+    carousel.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    carousel.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+
+    carousel.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+        e.preventDefault();
+
+        const newPosition = e.pageX - carousel.offsetLeft;
+        const deltaX = newPosition - startPosition;
+        carousel.scrollLeft = currentTranslate - deltaX;
+    });
+
+    carousel.addEventListener('touchmove', e => {
+        if (!isDragging || e.touches.length > 1) return;
+        e.preventDefault();
+
+        const touch = e.touches[0];
+        const newPosition = touch.pageX - carousel.offsetLeft;
+        const deltaX = newPosition - startPosition;
+        carousel.scrollLeft = currentTranslate - deltaX;
+    });
+});
 </script>

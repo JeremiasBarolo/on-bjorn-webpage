@@ -60,10 +60,10 @@
     z-index: 1;
 }
 
-.team-one__single:hover .team-one__img:before {
+/* .team-one__single:hover .team-one__img:before {
     visibility: visible;
     opacity: 1;
-}
+} */
 
 .team-one__img img {
     width: 100%;

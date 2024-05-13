@@ -87,5 +87,23 @@
 	</header>
 <!-- End Main Header -->
 <style>
-
+.main-header.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 </style>
+
+<script>
+	window.addEventListener('scroll', function() {
+    var header = document.querySelector('.main-header-one');
+    if (window.scrollY > 50) {
+        header.classList.add('fixed-header');
+    } else {
+        header.classList.remove('fixed-header');
+    }
+});
+</script>

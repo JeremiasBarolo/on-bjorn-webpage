@@ -1193,7 +1193,7 @@
 
 
 
-	/* .main-header.fixed-header .header-lower {
+	.main-header.fixed-header .header-lower {
 		position: static !important;
 	}
 
@@ -1203,7 +1203,7 @@
 
 	.main-header.main-header-two.fixed-header .header-two-lower {
 		position: static !important;
-	} */
+	}
 
 
 

@@ -90,13 +90,46 @@ import Contacto from '../components/shared/Contacto.astro'
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-7 col-lg-6">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105073.45340225006!2d-58.515698696010766!3d-34.61565477009822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires%2C%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1715527990118!5m2!1ses-419!2sar" style="border:0; width: 100%; height: 100%;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+					<div class="col-xl-7 col-lg-6 mt-4">
+						<iframe 
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105073.45340225006!2d-58.515698696010766!3d-34.61565477009822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires%2C%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1715527990118!5m2!1ses-419!2sar" 
+						style="
+						border:0; 
+						width: 100%; height: 100%; 
+						margin-top: 20px;" 
+						allowfullscreen="true" 
+						loading="lazy" 
+						referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+					
                     
 				</div>
 			</div>
 		</section>
 
+		<style>
+			.map-container {
+				position: relative;
+				padding-bottom: 56.25%; /* Proporción 16:9 */
+				height: 0;
+				overflow: hidden;
+			}
+			
+			.map-container iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+			
+			@media (min-width: 768px) {
+				.map-container iframe {
+					margin-top: 20px; /* Ajustar según sea necesario */
+
+				}
+			}
+		</style>
 
 </Layout>
+
