@@ -2056,19 +2056,27 @@
 
 	.main-header-one__logo-box img{
 		width: 68vw;
-		height: 5vh;
+		height: 5.7vh;
 	}
 
 }
 
 
-@media only screen and (min-width: 768px) {
+
+
+@media only screen and (min-width: 1310px) {
 
 	.main-menu .navigation>li>ul,
 	.main-menu .navigation>li>ul>li>ul {
 		display: block !important;
 		visibility: hidden;
 		opacity: 0;
+	}
+
+	.main-header-one__logo-box img{
+		width: 22vw;
+        height: 8vh;
+        aspect-ratio: 19 / 7;
 	}
 	
 
@@ -2105,6 +2113,21 @@
 		display: block;
 	}
 
+	@media only screen and (min-width: 768px) {
 
+		.main-menu .navigation>li>ul,
+		.main-menu .navigation>li>ul>li>ul {
+			display: block !important;
+			visibility: hidden;
+			opacity: 0;
+		}
+	
+		.main-header-one__logo-box img{
+			width: 68vw;
+			height: 9.5vh;
+		}
+		
+	
+	}
 
 }
