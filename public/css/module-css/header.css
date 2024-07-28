@@ -2075,9 +2075,10 @@
 	}
 
 	.main-header-one__logo-box img{
-		width: 22vw;
-        height: 8vh;
+		width: 21vw;
+        height: 7.7vh;
         aspect-ratio: 19 / 7;
+		
 	}
 	
 
@@ -2093,8 +2094,8 @@
 	}
 
 	.main-header-one__logo-box img{
-		width: 23vw;
-		height: 9.7vh;
+		width: 21vw;
+		height: 7.7vh;
 	}
 	
 
