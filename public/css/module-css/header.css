@@ -1337,9 +1337,9 @@
 }
 
 .mobile-menu .nav-logo {
-	position: relative;
-	padding: 25px 0px 20px;
-	background-color: #111111;
+    position: relative;
+    padding: 25px 0 20px;
+    background-color: var(--thm-black);
 }
 
 .mobile-menu .nav-logo img {
