@@ -8,58 +8,19 @@ import Contacto from '../components/shared/Contacto.astro'
 ---
 
 <Layout>
-	<main>
-		
+	<main id="main-content">
+		<Presentacion />
+		<Servicios />
 
-		<div class="page-wrapper">
-		
-				
-		
-		
-		
-<!-- ======================= Inicio ============================== -->
-				
-			<Presentacion />
-				
-
-
-<!-- ======================= Servicios ============================== -->
-		 	<Servicios />
-
-
-
-<!-- ======================= Proyectos ============================== -->
-
-			 <div class="section-title text-center">
-				<div class="section-title__tagline-box">
-					<span class="section-title__tagline">Proyectos</span>
-				</div>
-				<h2 class="section-title__title"> Estos Son Algunos de los Proyectos <br> en los que Participamos <br> 🙌</span></h2>
+		<div class="section-title text-center">
+			<div class="section-title__tagline-box">
+				<span class="section-title__tagline">Proyectos</span>
 			</div>
+			<h2 class="section-title__title">Estos son algunos de los proyectos <br> en los que participamos <br> <span aria-hidden="true">🙌</span></h2>
+		</div>
 
-
-					
-				<Proyectos />
-				
-		
-<!-- ======================= Contacto ============================== -->			
-		
-				
-			<!-- Free Trail Start -->
-
-<Contacto />
-
-<br>
-<br>
-
-<!-- ======================= Preguntas Frecuentes ============================== -->	
-
-				<Preguntas />
-
-				
-			
+		<Proyectos />
+		<Contacto />
+		<Preguntas />
+	</main>
 </Layout>
-
-<style>
-	
-</style>

@@ -151,6 +151,7 @@
     font-weight: 600;
     line-height: 20px;
     margin-bottom: 5px;
+    color: var(--thm-white);
 }
 
 .team-one__name a {

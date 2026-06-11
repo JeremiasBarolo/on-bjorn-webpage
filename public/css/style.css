@@ -109,10 +109,13 @@ Lizar Business HTML Template
 ***/
 
 
-/* Sticy Header */
-.want-sticky-header .main-header.fixed-header {
-	position: relative !important;
-	display: none;
+/* Sticky Header */
+.main-header-one.fixed-header {
+	position: fixed !important;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9999;
 }
 
 

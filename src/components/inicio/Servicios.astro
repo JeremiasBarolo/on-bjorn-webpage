@@ -13,11 +13,11 @@ import Card from '../shared/Card.astro'
                 <span class="section-title__tagline">Servicios</span>
             </div>
             <h2 class="section-title__title"> Nuestros Servicios <br>
-                Para Ayudar a tu Emprendimiento 🔨</h2>
+                Para Ayudar a tu Emprendimiento <span aria-hidden="true">🔨</span></h2>
         </div>
 
 
-        <div class="solutions-one__carousel" id="service-carrousel">
+        <div class="solutions-one__carousel" id="service-carrousel" tabindex="0" role="region" aria-label="Carrusel de servicios">
             <div class="item active">
                 <Card  
                 icon='🌀'
@@ -69,7 +69,18 @@ import Card from '../shared/Card.astro'
   
     #service-carrousel {
         display: flex;
-        overflow-x: hidden; 
+        overflow-x: auto;
+        scroll-snap-type: x proximity;
+        -webkit-overflow-scrolling: touch;
+        cursor: grab;
+        scrollbar-width: thin;
+        padding-bottom: 8px;
+    }
+
+    #service-carrousel.is-dragging {
+        cursor: grabbing;
+        user-select: none;
+        scroll-snap-type: none;
     }
 
     .item {
@@ -80,105 +91,45 @@ import Card from '../shared/Card.astro'
     }
 
     .item:last-child {
-        margin-right: 2em; /* Elimina el margen del último elemento */
-    }
-
-    
-    .accordion-icon {
-        font-size: 24px;
-    }
-
-    .accordion-title {
-        font-size: 18px;
-        font-weight: bold;
-        margin-top: 10px;
-    }
-
-    .accordion-content {
-        font-size: 16px;
-        margin-top: 5px;
+        margin-right: 2em;
     }
 
     @media only screen and (max-width: 767px) {
-    .solutions-one__carousel {
-        overflow-x: scroll; /* Permitir desplazamiento horizontal en dispositivos móviles */
-        white-space: nowrap; /* Evitar el ajuste de línea */
+        .item {
+            width: calc(100% - 24px);
+            max-width: 300px;
+        }
     }
-
-    .item {
-        display: inline-block; /* Alineación de elementos en línea */
-        width: calc(100% - 24px); /* Ancho del 100% del contenedor */
-        max-width: 300px;
-        max-height: auto; /* Ancho máximo para los elementos */
-        margin-right: 24px; /* Margen entre elementos */
-        vertical-align: top; /* Alinear elementos en la parte superior */
-        overflow: hidden; /* Ocultar cualquier desbordamiento */
-    }
-
-    /* Ajustes para el texto */
-    .item .card-content {
-    font-size: 14px; /* Tamaño de fuente más pequeño en dispositivos móviles */
-    word-wrap: break-word; /* Permite dividir palabras largas en líneas */
-    }
-}
-
-
-
-
-
-
 </style>
 
 <script>
    document.addEventListener('DOMContentLoaded', function() {
-    let isDragging = false;
-    let startPosition = 0;
-    let currentTranslate = 0;
-
     const carousel = document.getElementById('service-carrousel');
+    if (!carousel) return;
 
+    let isDragging = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+
+    // Arrastre con mouse; en táctil se usa el scroll nativo del navegador
     carousel.addEventListener('mousedown', e => {
         isDragging = true;
-        startPosition = e.pageX - carousel.offsetLeft;
-        currentTranslate = carousel.scrollLeft;
+        startX = e.pageX;
+        startScrollLeft = carousel.scrollLeft;
+        carousel.classList.add('is-dragging');
     });
 
-    carousel.addEventListener('touchstart', e => {
-        isDragging = true;
-        const touch = e.touches[0];
-        startPosition = touch.pageX - carousel.offsetLeft;
-        currentTranslate = carousel.scrollLeft;
-    });
-
-    carousel.addEventListener('mouseleave', () => {
-        isDragging = false;
-    });
-
-    carousel.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
-
-    carousel.addEventListener('touchend', () => {
-        isDragging = false;
+    ['mouseleave', 'mouseup'].forEach(evt => {
+        carousel.addEventListener(evt, () => {
+            isDragging = false;
+            carousel.classList.remove('is-dragging');
+        });
     });
 
     carousel.addEventListener('mousemove', e => {
         if (!isDragging) return;
         e.preventDefault();
-
-        const newPosition = e.pageX - carousel.offsetLeft;
-        const deltaX = newPosition - startPosition;
-        carousel.scrollLeft = currentTranslate - deltaX;
-    });
-
-    carousel.addEventListener('touchmove', e => {
-        if (!isDragging || e.touches.length > 1) return;
-        e.preventDefault();
-
-        const touch = e.touches[0];
-        const newPosition = touch.pageX - carousel.offsetLeft;
-        const deltaX = newPosition - startPosition;
-        carousel.scrollLeft = currentTranslate - deltaX;
+        carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
     });
 });
 </script>

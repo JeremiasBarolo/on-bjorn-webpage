@@ -1,3 +1,61 @@
+---
+const faqs = [
+    {
+        id: 'faq-1',
+        pregunta: '¿Por qué necesito una web?',
+        respuesta: `Tener una página web es primordial para el mercado actual. <br> <br>
+            Solo en Estados Unidos, el mercado online representa el 91.8% de las ventas de un emprendimiento,
+            es decir, al no tener presencia online usted estaría perdiendo una gran oportunidad de crecer y cambiar su realidad.
+            <br>
+            Por otro lado, tener una web profesional es, en muchos casos, el último paso para terminar de consolidar su imagen como marca.`,
+    },
+    {
+        id: 'faq-2',
+        pregunta: '¿Qué necesito para crear mi web?',
+        respuesta: `Como principal, buscamos tener conversaciones fluidas con nuestros clientes. Este punto siendo clave para establecer
+            y cumplir con nuestro objetivo. <br> <br>
+            Para poder crear su sitio web vamos a necesitar un correo electrónico,
+            en lo posible este deberá ser uno nuevo para uso exclusivo de la web. <br> <br>
+            De ser posible, necesitamos imágenes representativas de los productos que se desea exponer o el objetivo a concretar. <br>
+            De no contar con estas, rellenaremos las mismas con imágenes genéricas de alta calidad.`,
+    },
+    {
+        id: 'faq-3',
+        pregunta: '¿Cómo hago que mi web se vea online?',
+        respuesta: `Para poder ver tu web de manera online, necesitamos, una vez habiendo terminado, subir tu web a un servicio llamado hosting. <br>
+            <strong>El hosting es un espacio en la web donde vamos a poder guardar nuestra web para mostrarla al público.</strong>
+            <br> <br>
+            Los hosting influyen de manera radical en el funcionamiento de la web, siendo los pagos los recomendables para todas nuestras apps.
+            <br> <br>
+            Al terminar la app, subiremos la aplicación a un hosting gratuito. Este, aunque funcional, es muy limitado. Uno de sus principales limitantes es no poder ponerle el nombre de tu emprendimiento al enlace donde estará subido y su tiempo de carga.`,
+    },
+    {
+        id: 'faq-4',
+        pregunta: '¿Cómo sé qué aplicación necesito para mi emprendimiento?',
+        respuesta: `No tenga miedo en contactarnos para preguntar.
+            Siempre estamos dispuestos a ayudarlo a lograr su objetivo y aconsejarlo sobre su requerimiento.`,
+    },
+    {
+        id: 'faq-5',
+        pregunta: '¿Cuánto tiempo tardaría en tener mi aplicación?',
+        respuesta: `Las aplicaciones varían su tiempo dependiendo de la cantidad de contenido y detalles que tengan. Una vez descubramos qué aplicación se ajusta a su objetivo,
+            así como también los detalles del proyecto, le daremos un tiempo aproximado y máximo para su proyecto.`,
+    },
+    {
+        id: 'faq-6',
+        pregunta: 'Tengo mi web terminada y mi servicio de hosting contratado. ¿Ustedes se encargan de subirla a la web?',
+        respuesta: `Al terminar la aplicación, será subida a un hosting gratuito. <br>
+            <strong>Nosotros no subimos su aplicación a su hosting personalizado.</strong> <br>
+            Este es un servicio aparte que usted tiene la opción de contratar una vez terminada la aplicación.`,
+    },
+    {
+        id: 'faq-7',
+        pregunta: '¿Con la compra de mi aplicación, viene incluido el servicio de rebranding de marca?',
+        respuesta: `<strong>No, el servicio de rebranding de marca es opcional.</strong> <br>
+            Este servicio, aunque sea opcional, es muy recomendable para lograr crear una aplicación que muestre fielmente su imagen de marca.`,
+    },
+];
+---
 
 <section class="faq-one" id="faq">
     <div class="container">
@@ -5,142 +63,26 @@
             <div class="section-title__tagline-box">
                 <span class="section-title__tagline">Preguntas Frecuentes</span>
             </div>
-            <h6 class="section-title__title">¿Tenes Alguna Pregunta sobre <br> Nuestros Servicios? 
+            <h2 class="section-title__title">¿Tenés alguna pregunta sobre <br> nuestros servicios?
                 <br>
-                🧐
-                </h6>
+                <span aria-hidden="true">🧐</span>
+            </h2>
         </div>
-        <div class="faq-one__inner">
-            <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
-
-                
-
-                <div class="faq-one__inner faq-one-accrodion">
-                    <div class="accrodion">
-                        <div class="accrodion-title">
-                            <h4>¿Por qué necesito una web?</h4>
-                        </div>
-                        <div class="accrodion-content">
-                            <div class="inner">
-                                <p>
-                                    Tener una página web es primordial para el mercado actual. <br> <br>
-                                    Solo en Estados Unidos, el mercado online representa el 91.8% de las ventas de un emprendimiento, 
-                                    es decir, al no tener presencia online usted estaría perdiendo una gran oportunidad de crecer y cambiar su realidad.
-                                    <br>
-                                    Por otro lado, tener una web profesional es, en muchos casos, el último paso para terminar de consolidar su imagen como marca.
-                                </p>
-                            </div><!-- /.inner -->
+        <div class="faq-one__inner faq-one-accrodion">
+            {faqs.map((faq) => (
+                <div class="accrodion">
+                    <h3 class="accrodion-heading">
+                        <button type="button" class="accrodion-title" aria-expanded="false" aria-controls={`${faq.id}-content`} id={`${faq.id}-title`}>
+                            {faq.pregunta}
+                        </button>
+                    </h3>
+                    <div class="accrodion-content" id={`${faq.id}-content`} role="region" aria-labelledby={`${faq.id}-title`}>
+                        <div class="inner">
+                            <p set:html={faq.respuesta} />
                         </div>
                     </div>
-                
-
-
-                <div class="accrodion">
-                    <div class="accrodion-title">
-                        <h4>¿Que necesito para crear mi web?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>
-                                Como principal, buscamos tener conversaciones fluidas con nuestros clientes. Este punto siendo clave para establecer 
-                                y cumplir con nuesto objetivo. <br> <br>
-                                Para poder crear su sitio web vamos a necesitar un correo electronico,
-                                en lo posible este debera ser uno nuevo para uso exclusivo de la web. <br> <br>
-
-                                De ser posible, necesitamos imagenes respresentativas de los productos que se desea exponer o el objetivo a concretar. <br>
-                                De no contar con estas, rellenaremos las mismas con imagenes genericas de alta calidad.
-                                
-                            </p>
-                        </div><!-- /.inner -->
-                    </div>
                 </div>
-
-
-                <div class="accrodion">
-                    <div class="accrodion-title">
-                        <h4>¿Como hago que mi web se vea online?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>
-                                Para poder ver tu web de manera online, necesitamos, una vez habiendo terminado, subir tu web a un servicio llamado hosting. <br>
-
-                                <strong>El hosting es un espacio en la web donde vamos a poder guardar nuestra web para mostrarla al público.</strong>
-                                
-                                <br> <br>
-
-                                Los hosting influyen de manera radical en el funcionamiento de la web, siendo los pagos los recomendables para todas nuestras apps.
-                                <br> <br>
-                                Al terminar la app, subiremos la aplicación a un hosting gratuito. Este, aunque funcional, es muy limitado. Uno de sus principales limitantes es no poder ponerle el nombre de tu emprendimiento al enlace donde estará subido y su tiempo de carga.
-                            </p>
-                        </div><!-- /.inner -->
-                    </div>
-                </div>
-
-
-                <div class="accrodion">
-                    <div class="accrodion-title">
-                        <h4>¿Cómo sé qué aplicación necesito para mi emprendimiento?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>
-                                No tenga miedo en contactarnos para preguntar. 
-                                Siempre estamos dispuestos a ayudarlo a lograr su objetivo y aconsejarlo sobre su requerimiento.
-                            </p>
-                        </div><!-- /.inner -->
-                    </div>
-                </div>
-
-
-                <div class="accrodion">
-                    <div class="accrodion-title">
-                        <h4>¿Cuanto tiempo tardaria en tener mi aplicacion?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>
-                                Las aplicaciones varían su tiempo dependiendo de la cantidad de contenido y detalles que tengan. Una vez descubramos qué aplicación se ajusta a su objetivo, 
-                                así como también los detalles del proyecto, le daremos un tiempo aproximado y máximo para su proyecto.
-
-                            </p>
-                        </div><!-- /.inner -->
-                    </div>
-                </div>
-
-
-                <div class="accrodion">
-                    <div class="accrodion-title">
-                        <h4>Tengo mi web terminada y mi servicio de hosting contratado. ¿Ustedes se encargan de subirla a la web?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>
-                                Al terminar la aplicacion, sera subido a un hosting gratuito. <br>
-                                <strong>Nosotros no subimos su aplicacion a su hosting personalizado.</strong>  <br>
-                                Este es un servicio aparte que usted tiene la opcion de contratar una vez termianda la aplicacion. 
-                            </p>
-                        </div><!-- /.inner -->
-                    </div>
-                </div>
-
-
-                <div class="accrodion">
-                    <div class="accrodion-title">
-                        <h4>¿Con la compra de mi aplicación, viene incluido el servicio de rebranding de marca?</h4>
-                    </div>
-                    <div class="accrodion-content">
-                        <div class="inner">
-                            <p>
-                                <strong>No, el servicio de rebranding de marca es opcional.</strong> <br>
-                                Este servicio, aunque sea opcional, es muy recomendable para lograr crear una aplicación que muestre fielmente su imagen  marca.
-                            </p>
-                        </div><!-- /.inner -->
-                    </div>
-                </div>
-
-            </div>
-            </div>
+            ))}
         </div>
     </div>
 </section>
@@ -152,24 +94,28 @@
 
         accrodionTitles.forEach(function (title) {
             title.addEventListener("click", function () {
-                const accrodion = this.parentElement;
+                const accrodion = this.closest(".accrodion");
                 const isActive = accrodion.classList.contains("active");
                 const content = accrodion.querySelector(".accrodion-content");
 
                 if (isActive) {
                     content.style.maxHeight = "0";
+                    this.setAttribute("aria-expanded", "false");
                     setTimeout(function () {
                         accrodion.classList.remove("active");
-                    }, 300); // Ajusta el tiempo para que coincida con la duración de la transición
+                    }, 300);
                 } else {
                     const activeAccordions = document.querySelectorAll(".faq-one-accrodion .accrodion.active");
                     activeAccordions.forEach(function (acc) {
                         const activeContent = acc.querySelector(".accrodion-content");
-                        activeContent.style.maxHeight = "0";
+                        const activeTitle = acc.querySelector(".accrodion-title");
+                        if (activeContent) activeContent.style.maxHeight = "0";
                         acc.classList.remove("active");
+                        if (activeTitle) activeTitle.setAttribute("aria-expanded", "false");
                     });
 
                     accrodion.classList.add("active");
+                    this.setAttribute("aria-expanded", "true");
                     content.style.maxHeight = content.scrollHeight + "px";
                 }
             });
@@ -178,7 +124,7 @@
 </script>
 
 <style>
-    /*** 
+    /***
         Faq One
     ***/
     .faq-one {
@@ -201,27 +147,32 @@
         background-color: var(--thm-main-bg);
         border: 1px solid var(--thm-bdr-color);
         border-radius: var(--thm-border-radius);
-        transition: all 0.5s ease;
+        transition: background-color 0.5s ease, border-color 0.5s ease;
+    }
+
+    .accrodion-heading {
+        margin: 0;
     }
 
     .faq-one-accrodion .accrodion-title {
         position: relative;
         display: block;
+        width: 100%;
         cursor: pointer;
         padding: 20px 30px 20px;
-        transition: all 0.3s ease;
-        padding-right: 25px;
-    }
-
-    .faq-one-accrodion .accrodion-title h4 {
-        margin: 0;
+        padding-right: 50px;
+        background: none;
+        border: none;
+        text-align: left;
+        font-family: inherit;
         font-size: 20px;
         color: var(--thm-gray);
         font-weight: 500;
         line-height: 30px;
+        transition: color 0.3s ease;
     }
 
-    .faq-one-accrodion .accrodion.active .accrodion-title h4 {
+    .faq-one-accrodion .accrodion.active .accrodion-title {
         color: var(--thm-white);
     }
 
@@ -229,53 +180,55 @@
         margin-top: 15px;
     }
 
-    .faq-one-accrodion .accrodion-title h4::before {
+    .faq-one-accrodion .accrodion-title::before {
         content: "\e901";
         font-family: 'icomoon' !important;
         font-size: 13px;
         color: var(--thm-gray);
         position: absolute;
         top: 50%;
-        right: 0;
+        right: 25px;
         line-height: 15px;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
         transform: translateY(-50%);
-        transition: all 0.3s ease;
+        transition: color 0.3s ease, transform 0.3s ease;
         text-align: center;
         width: 21px;
         height: 21px;
     }
 
-    .faq-one-accrodion .accrodion.active .accrodion-title h4::before {
-        content: "\e901";
+    .faq-one-accrodion .accrodion.active .accrodion-title::before {
         color: var(--thm-white);
-        border-radius: 50%;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform: rotate(-180deg);
+        transform: translateY(-50%) rotate(-180deg);
     }
 
     .faq-one-accrodion .accrodion-content {
         position: relative;
         overflow: hidden;
         max-height: 0;
-        transition: all 0.5s ease;
-        
+        transition: max-height 0.5s ease;
     }
 
     .faq-one-accrodion .accrodion-content p {
-        margin: 0; /* Reinicia el margen de los párrafos */
+        margin: 0;
         padding-bottom: 2em;
         padding-right: 3em;
-        padding-left: 4em
+        padding-left: 4em;
     }
 
-    .faq-one-accrodion .accrodion-content p a {
+    .faq-one-accrodion .accrodion-content p :global(a) {
         color: var(--thm-gradient-color2);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .faq-one-accrodion .accrodion,
+        .faq-one-accrodion .accrodion-title,
+        .faq-one-accrodion .accrodion-title::before,
+        .faq-one-accrodion .accrodion-content {
+            transition: none;
+        }
     }
 </style>

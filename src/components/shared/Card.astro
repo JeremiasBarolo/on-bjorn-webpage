@@ -1,8 +1,8 @@
 ---
 interface Props {
-    icon: any;
-    title: content;
-    content:any;
+    icon: string;
+    title: string;
+    content: string;
 }
 const {icon, title, content} = Astro.props;
 
@@ -11,13 +11,12 @@ const {icon, title, content} = Astro.props;
 
 <div class="solutions-one__single">
     <div class="solutions-one__icon">
-        <h2>{icon}</h2>
+        <h2 aria-hidden="true">{icon}</h2>
     </div>
-    <h4 class="solutions-one__title"><a href=''>{title}</a></h4>
+    <h4 class="solutions-one__title">{title}</h4>
     <p class="solutions-one__text">
         {content}
     </p>
-    
 </div>
 
 

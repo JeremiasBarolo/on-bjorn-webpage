@@ -6,21 +6,18 @@ import Contacto from '../components/shared/Contacto.astro'
 <!-- Page Title Start -->
 
 <Layout>
-
-
-
+<main id="main-content">
 <section class="page-title">
     <div class="container">
         <div class="page-title__inner">
             <div class="page-title__shape-1"
-                style="background-image: url(images/shapes/page-title-shape-1.png);"></div>
+                style="background-image: url(/images/shapes/page-title-shape-1.png);" aria-hidden="true"></div>
             <div class="page-title__title-box">
-                <!-- <p class="page-title__sub-title">Sobre Nosotros</p> -->
-                <h3 class="page-title__title">
+                <h1 class="page-title__title">
                     Desarrollamos tu Marca Online
                     para Exhibir tu Trabajo con el Mundo <br>
-                    🌍
-                </h3>
+                    <span aria-hidden="true">🌍</span>
+                </h1>
             </div>
             <p class="page-title__text">
                     Nos comprometemos a potenciar tu imagen y volverla tu mayor herramienta para poder desempeñarte de la mejor manera en el mundo online.
@@ -37,10 +34,10 @@ import Contacto from '../components/shared/Contacto.astro'
             <div class="col-xl-5 col-lg-6">
                 <div class="about-one__left">
                     <div class="about-one__left-content">
-                        <h3 class="about-one__title"> Mejora tu imagen. <br>
+                        <h2 class="about-one__title"> Mejora tu imagen. <br>
                             Potencia tus ventas. <br>
                             Emprende Online.
-                        </h3>
+                        </h2>
                         <p class="about-one__text">
                             Nuestra experiencia en desarrollo de aplicaciones y diseño interactivo ofrece el mejor producto
                             para mantener y potenciar tu marca.
@@ -57,20 +54,18 @@ import Contacto from '../components/shared/Contacto.astro'
 <!-- Team One Start -->
 <section class="team-one">
     <div class="container">
-        <h3 class="team-one__title">
+        <h2 class="team-one__title">
             Conoce nuestras herramientas para hacer realidad tu objetivo
-        </h3>
+        </h2>
         <div class="row">
             
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="team-one__single">
                     <div class="team-one__img">
-                        <img src="images/resource/astro.svg" alt="">
-                        
-                        
+                        <img src="/images/resource/astro.svg" alt="Logo de Astro" loading="lazy">
                     </div>
                     <div class="team-one__content">
-                        <h4 class="team-one__name"><a href="#">Astro</a></h4>
+                        <h4 class="team-one__name">Astro</h4>
                         <p class="team-one__sub-title">Desarrollo Web</p>
                     </div>
                 </div>
@@ -79,12 +74,10 @@ import Contacto from '../components/shared/Contacto.astro'
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="team-one__single">
                     <div class="team-one__img">
-                        
-                        <img src="images/resource/file-type-angular.svg" alt="">
-                        
+                        <img src="/images/resource/file-type-angular.svg" alt="Logo de Angular" loading="lazy">
                     </div>
                     <div class="team-one__content">
-                        <h4 class="team-one__name"><a href="#">Angular</a></h4>
+                        <h4 class="team-one__name">Angular</h4>
                         <p class="team-one__sub-title">Desarrollo Web</p>
                     </div>
                 </div>
@@ -93,10 +86,10 @@ import Contacto from '../components/shared/Contacto.astro'
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="team-one__single">
                     <div class="team-one__img">
-                        <img src="images/resource/node-js.svg" alt="">
+                        <img src="/images/resource/node-js.svg" alt="Logo de Node.js" loading="lazy">
                     </div>
                     <div class="team-one__content">
-                        <h4 class="team-one__name"><a href="#">Express JS</a></h4>
+                        <h4 class="team-one__name">Express JS</h4>
                         <p class="team-one__sub-title">Desarrollo Web</p>
                     </div>
                 </div>
@@ -105,11 +98,10 @@ import Contacto from '../components/shared/Contacto.astro'
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="team-one__single">
                     <div class="team-one__img">
-                        <img src="images/resource/react.svg" alt="">
-                        
+                        <img src="/images/resource/react.svg" alt="Logo de React" loading="lazy">
                     </div>
                     <div class="team-one__content">
-                        <h4 class="team-one__name"><a href="#">React</a></h4>
+                        <h4 class="team-one__name">React</h4>
                         <p class="team-one__sub-title">Desarrollo Web</p>
                     </div>
                 </div>
@@ -118,11 +110,10 @@ import Contacto from '../components/shared/Contacto.astro'
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="team-one__single">
                     <div class="team-one__img">
-                        <img src="images/resource/mysql.svg" alt="">
-                        
+                        <img src="/images/resource/mysql.svg" alt="Logo de MySQL" loading="lazy">
                     </div>
                     <div class="team-one__content">
-                        <h4 class="team-one__name"><a href="#">MySQL</a></h4>
+                        <h4 class="team-one__name">MySQL</h4>
                         <p class="team-one__sub-title">Desarrollo Web</p>
                     </div>
                 </div>
@@ -131,11 +122,10 @@ import Contacto from '../components/shared/Contacto.astro'
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="team-one__single">
                     <div class="team-one__img">
-                        <img src="images/resource/vercel.svg" alt="">
-                        
+                        <img src="/images/resource/vercel.svg" alt="Logo de Vercel" loading="lazy">
                     </div>
                     <div class="team-one__content">
-                        <h4 class="team-one__name"><a href="#">Vercel</a></h4>
+                        <h4 class="team-one__name">Vercel</h4>
                         <p class="team-one__sub-title">Desarrollo Web</p>
                     </div>
                 </div>
@@ -144,11 +134,10 @@ import Contacto from '../components/shared/Contacto.astro'
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="team-one__single">
                     <div class="team-one__img">
-                        <img src="images/resource/docker.svg" alt="">
-                        
+                        <img src="/images/resource/docker.svg" alt="Logo de Docker" loading="lazy">
                     </div>
                     <div class="team-one__content">
-                        <h4 class="team-one__name"><a href="#">Docker</a></h4>
+                        <h4 class="team-one__name">Docker</h4>
                         <p class="team-one__sub-title">Desarrollo Web</p>
                     </div>
                 </div>
@@ -158,12 +147,11 @@ import Contacto from '../components/shared/Contacto.astro'
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="team-one__single">
                     <div class="team-one__img">
-                        <img src="images/resource/photoshop.svg" alt="">
-                        
+                        <img src="/images/resource/photoshop.svg" alt="Logo de Photoshop" loading="lazy">
                     </div>
                     <div class="team-one__content">
-                        <h4 class="team-one__name"><a href="#">Photoshop</a></h4>
-                        <p class="team-one__sub-title">Diseño Grafico</p>
+                        <h4 class="team-one__name">Photoshop</h4>
+                        <p class="team-one__sub-title">Diseño Gráfico</p>
                     </div>
                 </div>
             </div>
@@ -176,19 +164,19 @@ import Contacto from '../components/shared/Contacto.astro'
 <!-- AI Product Start -->
 <section class="ai-product">
     <div class="container">
-        <h3 class="ai-product__top-title">
-            Nuestros productos son desarrollados usando las ultimas tecnologias y orientandolo hacia donde apunta el mercado online actual.
-        </h3>
+        <h2 class="ai-product__top-title">
+            Nuestros productos son desarrollados usando las últimas tecnologías y orientándolos hacia donde apunta el mercado online actual.
+        </h2>
         <div class="row">
             <!-- AI Product Single Start -->
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="ai-product__single">
                     <div class="ai-product__icon">
-                        <img src="images/icons/research-discovery.png" alt="">
+                        <i class="fal fa-handshake" aria-hidden="true"></i>
                     </div>
-                    <h4 class="ai-product__title"><a href="#">Buscamos Conocerte.</a></h4>
+                    <h4 class="ai-product__title">Buscamos conocerte</h4>
                     <p class="ai-product__text">
-                        Establecemos una conexion con nuestros clientes para relacionarnos con el producto final.
+                        Establecemos una conexión con nuestros clientes para relacionarnos con el producto final.
                     </p>
                 </div>
             </div>
@@ -197,9 +185,9 @@ import Contacto from '../components/shared/Contacto.astro'
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="ai-product__single">
                     <div class="ai-product__icon">
-                        <img src="images/icons/information-architecture.png" alt="">
+                        <i class="fal fa-chart-line" aria-hidden="true"></i>
                     </div>
-                    <h4 class="ai-product__title"><a href="#">Conocemos las tendencias.</a></h4>
+                    <h4 class="ai-product__title">Conocemos las tendencias</h4>
                     <p class="ai-product__text">
                         Nos mantenemos al corriente de las tendencias del mercado y de diseño llamativo e interactivo.
                     </p>
@@ -210,9 +198,9 @@ import Contacto from '../components/shared/Contacto.astro'
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="ai-product__single">
                     <div class="ai-product__icon">
-                        <img src="images/icons/design-development.png" alt="">
+                        <i class="fal fa-tools" aria-hidden="true"></i>
                     </div>
-                    <h4 class="ai-product__title"><a href="#">Sin Problemas.</a></h4>
+                    <h4 class="ai-product__title">Sin problemas</h4>
                     <p class="ai-product__text">
                         Te desligamos de cualquier problema relacionado a el desarrollo de las aplicaciones.
                     </p>
@@ -223,9 +211,9 @@ import Contacto from '../components/shared/Contacto.astro'
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="ai-product__single">
                     <div class="ai-product__icon">
-                        <img src="images/icons/quality-assurance.png" alt="">
+                        <i class="fal fa-rocket" aria-hidden="true"></i>
                     </div>
-                    <h4 class="ai-product__title"><a href="#">Desarrollo, Despligue y Resultados</a></h4>
+                    <h4 class="ai-product__title">Desarrollo, despliegue y resultados</h4>
                     <p class="ai-product__text">
                         Queremos que conozcas los resultados de nuestro trabajo sin vueltas.
                     </p>
@@ -239,6 +227,5 @@ import Contacto from '../components/shared/Contacto.astro'
 
 <Contacto />
 
-<!-- Free Trail End -->
-
+</main>
 </Layout>

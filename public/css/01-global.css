@@ -44,7 +44,6 @@
     margin: 0px;
     padding: 0px;
     border: none;
-    outline: none;
 }
 
 /*** 
@@ -116,7 +115,6 @@ a:hover,
 a:focus,
 a:visited {
     text-decoration: none;
-    outline: none !important;
 }
 
 h1,
@@ -265,7 +263,6 @@ img {
 .bootstrap-select .show>.btn-light.dropdown-toggle {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    outline: none !important;
 }
 
 .bootstrap-select>.dropdown-toggle {
@@ -275,7 +272,7 @@ img {
 
 .bootstrap-select .dropdown-toggle:focus,
 .bootstrap-select>select.mobile-device:focus+.dropdown-toggle {
-    outline: none !important;
+    outline-offset: 2px;
 }
 
 .bootstrap-select .dropdown-menu {
@@ -523,7 +520,6 @@ img {
     vertical-align: middle;
     -webkit-appearance: none;
     appearance: none;
-    outline: none !important;
     color: var(--thm-white);
     font-size: 14px;
     font-weight: 600;
@@ -562,7 +558,6 @@ img {
     vertical-align: middle;
     -webkit-appearance: none;
     appearance: none;
-    outline: none !important;
     color: var(--thm-white);
     font-size: 14px;
     font-weight: 600;
@@ -603,7 +598,6 @@ img {
     vertical-align: middle;
     -webkit-appearance: none;
     appearance: none;
-    outline: none !important;
     color: var(--thm-white);
     font-size: 18px;
     font-weight: 500;

@@ -53,6 +53,7 @@
     line-height: 25px;
     margin-top: 26px;
     margin-bottom: 23px;
+    color: var(--thm-white);
 }
 
 .ai-product__title a {

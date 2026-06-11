@@ -57,6 +57,7 @@
 	font-weight: 600;
 	margin-top: 24px;
 	margin-bottom: 19px;
+	color: var(--thm-white);
 }
 
 .solutions-one__title a {
