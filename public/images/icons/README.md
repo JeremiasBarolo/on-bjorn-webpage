@@ -1,4 +1,4 @@
-# Iconos ON Bjorn
+﻿# Iconos ON BJORN
 
 SVGs descargados desde [icons0.dev](https://icons0.dev/) y guardados en el repo.
 
@@ -17,7 +17,7 @@ Ver **Fase 2** en `PLAN-MEJORA-WEB.md` para el flujo completo.
 
 Usar la **misma colección** para los 6 (recomendado: `lucide`).
 
-## `pillars/` — sección "Por qué ON Bjorn" (opcional, Fase 7)
+## `pillars/` — sección "Por qué ON BJORN" (opcional, Fase 7)
 
 | Archivo | Pilar |
 |---------|-------|

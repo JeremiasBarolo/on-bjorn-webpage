@@ -1,22 +1,111 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
 import Presentacion from '../components/inicio/Presentacion.astro'
 import Servicios from '../components/inicio/Servicios.astro'
 import Proyectos from '../components/inicio/Proyectos.astro'
 import Preguntas from '../components/inicio/Preguntas.astro'
 import Contacto from '../components/shared/Contacto.astro'
+import { faqs } from '../data/faqs';
+
+const homeTitle = 'ON BJORN - Desarrollo web y diseño para emprendedores';
+const homeDescription = 'Agencia de desarrollo web, e-commerce y rebranding en Buenos Aires. Potenciá tu emprendimiento online.';
+const organizationSchema = {
+	'@context': 'https://schema.org',
+	'@type': ['Organization', 'LocalBusiness'],
+	name: 'ON BJORN',
+	url: 'https://onbjorn.com/',
+	logo: 'https://onbjorn.com/images/resource/ON_BJORN_ISO.png',
+	image: 'https://onbjorn.com/images/og-default.jpg',
+	description: homeDescription,
+	telephone: '+54 11 6820 4445',
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'Buenos Aires',
+		addressCountry: 'AR',
+	},
+	sameAs: [
+		'https://www.instagram.com/on_bjorn/',
+		'https://github.com/JeremiasBarolo',
+		'https://www.linkedin.com/in/jeremias-barolo-721083250',
+	],
+};
+const websiteSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	name: 'ON BJORN',
+	url: 'https://onbjorn.com/',
+};
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqs.map((faq) => ({
+		'@type': 'Question',
+		name: faq.pregunta,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: faq.respuestaTexto,
+		},
+	})),
+};
+
+const pillars = [
+	{
+		icon: '/images/icons/pillars/desarrollo-a-medida.svg',
+		title: 'Desarrollo a medida',
+		text: 'Cada proyecto se adapta a tu objetivo, tu contenido y la etapa real de tu emprendimiento.',
+	},
+	{
+		icon: '/images/icons/pillars/acompanamiento.svg',
+		title: 'Acompañamiento cercano',
+		text: 'Mantenemos una comunicación clara durante el diseño, desarrollo, revisión y publicación.',
+	},
+	{
+		icon: '/images/icons/pillars/presencia-online.svg',
+		title: 'Presencia online real',
+		text: 'No solo diseñamos: también pensamos hosting, deploy, rendimiento y estructura para crecer.',
+	},
+	{
+		icon: '/images/icons/pillars/enfoque-emprendedores.svg',
+		title: 'Enfoque en emprendedores',
+		text: 'Trabajamos con negocios que necesitan verse profesionales sin perder cercanía ni claridad.',
+	},
+];
 ---
 
-<Layout>
+<Layout title={homeTitle} description={homeDescription} schema={[organizationSchema, websiteSchema, faqSchema]}>
 	<main id="main-content">
 		<Presentacion />
 		<Servicios />
+
+		<section class="why-on-bjorn" aria-labelledby="why-on-bjorn-title">
+			<div class="container">
+				<div class="section-title text-center">
+					<div class="section-title__tagline-box">
+						<span class="section-title__tagline">Por qué ON BJORN</span>
+					</div>
+					<h2 class="section-title__title" id="why-on-bjorn-title">Desarrollo web pensado para emprendedores</h2>
+				</div>
+				<p class="why-on-bjorn__intro">
+					ON BJORN es una agencia de Buenos Aires que crea sitios web, e-commerce, rebranding y sistemas a medida para emprendimientos que necesitan crecer online con una presencia clara, profesional y fácil de mantener.
+				</p>
+				<div class="why-on-bjorn__grid">
+					{pillars.map((pillar) => (
+						<article class="why-on-bjorn__item">
+							<span class="why-on-bjorn__icon" style={`--icon-url: url('${pillar.icon}')`} aria-hidden="true"></span>
+							<h3>{pillar.title}</h3>
+							<p>{pillar.text}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
 
 		<div class="section-title text-center">
 			<div class="section-title__tagline-box">
 				<span class="section-title__tagline">Proyectos</span>
 			</div>
-			<h2 class="section-title__title">Estos son algunos de los proyectos <br> en los que participamos <br> <span aria-hidden="true">🙌</span></h2>
+			<h2 class="section-title__title">Estos son algunos de los proyectos <br> en los que participamos</h2>
+			<p class="projects-intro">Creamos webs empresariales, sistemas internos y landing pages para clientes de ingeniería, servicios y emprendimientos comerciales.</p>
 		</div>
 
 		<Proyectos />
@@ -24,3 +113,68 @@ import Contacto from '../components/shared/Contacto.astro'
 		<Preguntas />
 	</main>
 </Layout>
+
+<style>
+	.why-on-bjorn {
+		padding: 80px 0 90px;
+	}
+
+	.why-on-bjorn__intro,
+	.projects-intro {
+		max-width: 760px;
+		margin: 22px auto 54px;
+		text-align: center;
+		color: var(--thm-gray);
+		font-size: 17px;
+		line-height: 1.7;
+	}
+
+	.why-on-bjorn__grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 24px;
+	}
+
+	.why-on-bjorn__item {
+		border: 1px solid var(--thm-bdr-color);
+		border-radius: 8px;
+		background: var(--thm-main-bg);
+		padding: 28px 24px;
+		min-height: 240px;
+	}
+
+	.why-on-bjorn__icon {
+		display: inline-block;
+		width: 44px;
+		height: 44px;
+		background-color: var(--thm-base, #FF6C1E);
+		mask: var(--icon-url) center / contain no-repeat;
+		-webkit-mask: var(--icon-url) center / contain no-repeat;
+		margin-bottom: 18px;
+	}
+
+	.why-on-bjorn__item h3 {
+		color: var(--thm-white);
+		font-size: 21px;
+		line-height: 1.3;
+		margin-bottom: 12px;
+	}
+
+	.why-on-bjorn__item p {
+		color: var(--thm-gray);
+		line-height: 1.65;
+		margin: 0;
+	}
+
+	@media (max-width: 991px) {
+		.why-on-bjorn__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 575px) {
+		.why-on-bjorn__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

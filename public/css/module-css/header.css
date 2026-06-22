@@ -69,7 +69,7 @@
 
 .main-header-one__logo-box {
 	position: relative;
-	padding: 26.5px 0;
+	padding: 18px 0;
 	z-index: 10;
 }
 
@@ -1343,8 +1343,11 @@
 }
 
 .mobile-menu .nav-logo img {
-	width: 80vw;
-	height: 7vh;
+	width: auto;
+	height: auto;
+	max-width: 190px;
+	max-height: 56px;
+	object-fit: contain;
 }
 
 .mobile-menu-visible {
@@ -2034,11 +2037,13 @@
 
 
 
-.logo{
-	min-width: 19vw;
-	height: 7.8vh;
-	aspect-ratio: 19/7;
-	margin-left: 4vw;
+.logo {
+	display: block;
+	width: auto;
+	height: 46px;
+	max-width: 190px;
+	margin-left: clamp(12px, 3vw, 48px);
+	object-fit: contain;
 }
 
 
@@ -2055,9 +2060,11 @@
 		overflow: hidden;
 	}
 
-	.main-header-one__logo-box img{
-		width: 68vw;
-		height: 5.7vh;
+	.main-header-one__logo-box img {
+		width: auto;
+		height: 42px;
+		max-width: 180px;
+		object-fit: contain;
 	}
 
 }
@@ -2074,11 +2081,11 @@
 		opacity: 0;
 	}
 
-	.main-header-one__logo-box img{
-		width: 21vw;
-        height: 7.7vh;
-        aspect-ratio: 19 / 7;
-		
+	.main-header-one__logo-box img {
+		width: auto;
+		height: 46px;
+		max-width: 190px;
+		object-fit: contain;
 	}
 	
 
@@ -2093,9 +2100,11 @@
 		opacity: 0;
 	}
 
-	.main-header-one__logo-box img{
-		width: 21vw;
-		height: 7.7vh;
+	.main-header-one__logo-box img {
+		width: auto;
+		height: 46px;
+		max-width: 190px;
+		object-fit: contain;
 	}
 	
 
@@ -2141,9 +2150,11 @@
 			opacity: 0;
 		}
 	
-		.main-header-one__logo-box img{
-			width: 68vw;
-			height: 9.5vh;
+		.main-header-one__logo-box img {
+			width: auto;
+			height: 38px;
+			max-width: 170px;
+			object-fit: contain;
 		}
 		
 	

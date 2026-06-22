@@ -1,11 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Contacto from '../components/shared/Contacto.astro'
+
+const processSteps = [
+    'Charla inicial y definición de objetivos',
+    'Propuesta, estructura y dirección visual',
+    'Desarrollo, revisión e iteración',
+    'Lanzamiento, entrega y acompañamiento',
+];
 ---
 
-<!-- Page Title Start -->
-
-<Layout>
+<Layout
+    title="Sobre nosotros - ON BJORN"
+    description="Conocé al equipo, las herramientas y el proceso con el que desarrollamos tu marca online."
+>
 <main id="main-content">
 <section class="page-title">
     <div class="container">
@@ -14,161 +22,76 @@ import Contacto from '../components/shared/Contacto.astro'
                 style="background-image: url(/images/shapes/page-title-shape-1.png);" aria-hidden="true"></div>
             <div class="page-title__title-box">
                 <h1 class="page-title__title">
-                    Desarrollamos tu Marca Online
-                    para Exhibir tu Trabajo con el Mundo <br>
-                    <span aria-hidden="true">🌍</span>
+                    Desarrollamos tu marca online
+                    para mostrar tu trabajo al mundo
                 </h1>
             </div>
             <p class="page-title__text">
-                    Nos comprometemos a potenciar tu imagen y volverla tu mayor herramienta para poder desempeñarte de la mejor manera en el mundo online.
+                Potenciamos tu imagen para que tu presencia digital sea una herramienta concreta de crecimiento.
             </p>
         </div>
     </div>
 </section>
-<!-- Page Title End -->
 
-<!-- About One Start -->
 <section class="about-one">
     <div class="container">
         <div class="row">
             <div class="col-xl-5 col-lg-6">
                 <div class="about-one__left">
                     <div class="about-one__left-content">
-                        <h2 class="about-one__title"> Mejora tu imagen. <br>
+                        <h2 class="about-one__title">Mejorá tu imagen. <br>
                             Potencia tus ventas. <br>
-                            Emprende Online.
+                            Emprendé online.
                         </h2>
                         <p class="about-one__text">
                             Nuestra experiencia en desarrollo de aplicaciones y diseño interactivo ofrece el mejor producto
                             para mantener y potenciar tu marca.
                         </p>
-                       
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- About One End -->
 
-<!-- Team One Start -->
 <section class="team-one">
     <div class="container">
         <h2 class="team-one__title">
-            Conoce nuestras herramientas para hacer realidad tu objetivo
+            Conocé nuestras herramientas para hacer realidad tu objetivo
         </h2>
         <div class="row">
-            
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="team-one__single">
-                    <div class="team-one__img">
-                        <img src="/images/resource/astro.svg" alt="Logo de Astro" loading="lazy">
-                    </div>
-                    <div class="team-one__content">
-                        <h4 class="team-one__name">Astro</h4>
-                        <p class="team-one__sub-title">Desarrollo Web</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="team-one__single">
-                    <div class="team-one__img">
-                        <img src="/images/resource/file-type-angular.svg" alt="Logo de Angular" loading="lazy">
-                    </div>
-                    <div class="team-one__content">
-                        <h4 class="team-one__name">Angular</h4>
-                        <p class="team-one__sub-title">Desarrollo Web</p>
+            {[
+                ['astro.svg', 'Astro', 'Desarrollo web'],
+                ['file-type-angular.svg', 'Angular', 'Desarrollo web'],
+                ['node-js.svg', 'Express JS', 'Desarrollo web'],
+                ['react.svg', 'React', 'Desarrollo web'],
+                ['mysql.svg', 'MySQL', 'Desarrollo web'],
+                ['vercel.svg', 'Vercel', 'Desarrollo web'],
+                ['docker.svg', 'Docker', 'Desarrollo web'],
+                ['photoshop.svg', 'Photoshop', 'Diseño gráfico'],
+            ].map(([image, name, type]) => (
+                <div class="col-xl-3 col-lg-6 col-md-6">
+                    <div class="team-one__single">
+                        <div class="team-one__img">
+                            <img src={`/images/resource/${image}`} alt={`Logo de ${name}`} loading="lazy">
+                        </div>
+                        <div class="team-one__content">
+                            <h4 class="team-one__name">{name}</h4>
+                            <p class="team-one__sub-title">{type}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="team-one__single">
-                    <div class="team-one__img">
-                        <img src="/images/resource/node-js.svg" alt="Logo de Node.js" loading="lazy">
-                    </div>
-                    <div class="team-one__content">
-                        <h4 class="team-one__name">Express JS</h4>
-                        <p class="team-one__sub-title">Desarrollo Web</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="team-one__single">
-                    <div class="team-one__img">
-                        <img src="/images/resource/react.svg" alt="Logo de React" loading="lazy">
-                    </div>
-                    <div class="team-one__content">
-                        <h4 class="team-one__name">React</h4>
-                        <p class="team-one__sub-title">Desarrollo Web</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="team-one__single">
-                    <div class="team-one__img">
-                        <img src="/images/resource/mysql.svg" alt="Logo de MySQL" loading="lazy">
-                    </div>
-                    <div class="team-one__content">
-                        <h4 class="team-one__name">MySQL</h4>
-                        <p class="team-one__sub-title">Desarrollo Web</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="team-one__single">
-                    <div class="team-one__img">
-                        <img src="/images/resource/vercel.svg" alt="Logo de Vercel" loading="lazy">
-                    </div>
-                    <div class="team-one__content">
-                        <h4 class="team-one__name">Vercel</h4>
-                        <p class="team-one__sub-title">Desarrollo Web</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="team-one__single">
-                    <div class="team-one__img">
-                        <img src="/images/resource/docker.svg" alt="Logo de Docker" loading="lazy">
-                    </div>
-                    <div class="team-one__content">
-                        <h4 class="team-one__name">Docker</h4>
-                        <p class="team-one__sub-title">Desarrollo Web</p>
-                    </div>
-                </div>
-            </div>
-            
-
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="team-one__single">
-                    <div class="team-one__img">
-                        <img src="/images/resource/photoshop.svg" alt="Logo de Photoshop" loading="lazy">
-                    </div>
-                    <div class="team-one__content">
-                        <h4 class="team-one__name">Photoshop</h4>
-                        <p class="team-one__sub-title">Diseño Gráfico</p>
-                    </div>
-                </div>
-            </div>
+            ))}
         </div>
     </div>
 </section>
-<!-- Team One End -->
 
-
-<!-- AI Product Start -->
 <section class="ai-product">
     <div class="container">
         <h2 class="ai-product__top-title">
-            Nuestros productos son desarrollados usando las últimas tecnologías y orientándolos hacia donde apunta el mercado online actual.
+            Desarrollamos productos digitales con tecnologías actuales, foco en rendimiento y una experiencia clara para tus clientes.
         </h2>
         <div class="row">
-            <!-- AI Product Single Start -->
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="ai-product__single">
                     <div class="ai-product__icon">
@@ -176,12 +99,10 @@ import Contacto from '../components/shared/Contacto.astro'
                     </div>
                     <h4 class="ai-product__title">Buscamos conocerte</h4>
                     <p class="ai-product__text">
-                        Establecemos una conexión con nuestros clientes para relacionarnos con el producto final.
+                        Entendemos tu objetivo, tu público y el mensaje que necesitás comunicar antes de diseñar.
                     </p>
                 </div>
             </div>
-            <!-- AI Product Single End -->
-            <!-- AI Product Single Start -->
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="ai-product__single">
                     <div class="ai-product__icon">
@@ -189,25 +110,21 @@ import Contacto from '../components/shared/Contacto.astro'
                     </div>
                     <h4 class="ai-product__title">Conocemos las tendencias</h4>
                     <p class="ai-product__text">
-                        Nos mantenemos al corriente de las tendencias del mercado y de diseño llamativo e interactivo.
+                        Combinamos diseño actual con decisiones funcionales para que la web se vea bien y sea fácil de usar.
                     </p>
                 </div>
             </div>
-            <!-- AI Product Single End -->
-            <!-- AI Product Single Start -->
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="ai-product__single">
                     <div class="ai-product__icon">
                         <i class="fal fa-tools" aria-hidden="true"></i>
                     </div>
-                    <h4 class="ai-product__title">Sin problemas</h4>
+                    <h4 class="ai-product__title">Proceso claro</h4>
                     <p class="ai-product__text">
-                        Te desligamos de cualquier problema relacionado a el desarrollo de las aplicaciones.
+                        Te guiamos en contenido, estructura, desarrollo y publicación para que sepas qué pasa en cada etapa.
                     </p>
                 </div>
             </div>
-            <!-- AI Product Single End -->
-            <!-- AI Product Single Start -->
             <div class="col-xl-3 col-lg-6 col-md-6">
                 <div class="ai-product__single">
                     <div class="ai-product__icon">
@@ -215,17 +132,80 @@ import Contacto from '../components/shared/Contacto.astro'
                     </div>
                     <h4 class="ai-product__title">Desarrollo, despliegue y resultados</h4>
                     <p class="ai-product__text">
-                        Queremos que conozcas los resultados de nuestro trabajo sin vueltas.
+                        Entregamos una web lista para mostrarse online, con una base preparada para seguir creciendo.
                     </p>
                 </div>
             </div>
-            <!-- AI Product Single End -->
         </div>
     </div>
 </section>
-<!-- AI Product End -->
+
+<section class="work-process" aria-labelledby="work-process-title">
+    <div class="container">
+        <div class="section-title text-center">
+            <div class="section-title__tagline-box">
+                <span class="section-title__tagline">Cómo trabajamos</span>
+            </div>
+            <h2 class="section-title__title" id="work-process-title">Un proceso simple para avanzar con claridad</h2>
+        </div>
+        <div class="work-process__grid">
+            {processSteps.map((step, index) => (
+                <article class="work-process__item">
+                    <span class="work-process__number">{String(index + 1).padStart(2, '0')}</span>
+                    <h3>{step}</h3>
+                </article>
+            ))}
+        </div>
+    </div>
+</section>
 
 <Contacto />
 
 </main>
 </Layout>
+
+<style>
+    .work-process {
+        padding: 90px 0 70px;
+    }
+
+    .work-process__grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .work-process__item {
+        border: 1px solid var(--thm-bdr-color);
+        border-radius: 8px;
+        background: var(--thm-main-bg);
+        padding: 26px 22px;
+        min-height: 160px;
+    }
+
+    .work-process__number {
+        display: block;
+        color: var(--thm-base, #FF6C1E);
+        font-weight: 700;
+        margin-bottom: 18px;
+    }
+
+    .work-process__item h3 {
+        color: var(--thm-white);
+        font-size: 20px;
+        line-height: 1.45;
+        margin: 0;
+    }
+
+    @media (max-width: 991px) {
+        .work-process__grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 575px) {
+        .work-process__grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

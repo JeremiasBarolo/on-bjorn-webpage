@@ -1,18 +1,58 @@
----
+﻿---
 import Header from '../components/shared/Header.astro'
 import Footer from '../components/shared/Footer.astro'
+
+type JsonLd = Record<string, unknown>;
+
+interface Props {
+	title?: string;
+	description?: string;
+	ogImage?: string;
+	canonical?: string;
+	noindex?: boolean;
+	schema?: JsonLd | JsonLd[];
+}
+
+const siteUrl = 'https://onbjorn.com';
+const {
+	title = 'ON BJORN - Desarrollo web y diseño para emprendedores',
+	description = 'Agencia de desarrollo web, e-commerce y rebranding en Buenos Aires. Potenciá tu emprendimiento online.',
+	ogImage = '/images/og-default.jpg',
+	canonical,
+	noindex = false,
+	schema,
+} = Astro.props;
+
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
+const absoluteOgImage = new URL(ogImage, siteUrl).toString();
+const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="ON Bjorn — Desarrollo web, e-commerce y rebranding para potenciar tu emprendimiento online." />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="theme-color" content="#111022" />
-		<link rel="icon" href="/images/resource/ON_BJORN_ISO.png" type="image/png" />
 		<meta name="generator" content={Astro.generator} />
-		<title>ON BJORN - Potencia tu Emprendimiento</title>
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="icon" href="/images/resource/ON_BJORN_ISO.png" type="image/png" sizes="512x512" />
+		<link rel="apple-touch-icon" href="/images/resource/ON_BJORN_ISO.png" />
+		<title>{title}</title>
+
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={absoluteOgImage} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_AR" />
+		<meta property="og:site_name" content="ON BJORN" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={absoluteOgImage} />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +64,10 @@ import Footer from '../components/shared/Footer.astro'
 		<link href="/css/bootstrap.css" rel="stylesheet">
 		<link href="/css/style.css" rel="stylesheet">
 		<link href="/css/responsive.css" rel="stylesheet">
+
+		{schemas.map((schemaItem) => (
+			<script type="application/ld+json" set:html={JSON.stringify(schemaItem)} />
+		))}
 	</head>
 	<body class="body-bg-color">
 		<a href="#main-content" class="skip-link">Ir al contenido principal</a>
@@ -33,11 +77,19 @@ import Footer from '../components/shared/Footer.astro'
 		</div>
 		
 		<Footer />
+		<script>
+			import '../scripts/scroll';
+		</script>
 	</body>
 </html>
 <style is:global>
 	html {
 		color-scheme: dark;
+		overscroll-behavior: none;
+	}
+
+	body {
+		overscroll-behavior: none;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -145,7 +197,20 @@ import Footer from '../components/shared/Footer.astro'
 	}
 
 	.section-title {
-		margin-bottom: 50px;
+		margin-bottom: 64px;
+	}
+
+	.section-title__tagline-box {
+		margin-bottom: 18px;
+	}
+
+	.section-title__title {
+		line-height: 1.22;
+	}
+
+	.section-title__title + p,
+	.section-title + p {
+		margin-top: 18px;
 	}
 
 	.solutions-two__content-one-points li .text p {

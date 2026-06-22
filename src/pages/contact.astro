@@ -1,8 +1,11 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
+<Layout
+	title="Contacto - ON BJORN"
+	description="Escribinos para empezar tu proyecto web. Desarrollo web, e-commerce y rebranding en Buenos Aires."
+>
 	<main id="main-content">
 		<section class="page-title">
 			<div class="container">
@@ -12,9 +15,8 @@ import Layout from '../layouts/Layout.astro';
 					<div class="page-title__title-box">
 						<h1 class="page-title__title">
 							Estamos esperando <br> 
-							crear tu idea. 
-							<br>
-							<span aria-hidden="true">🙌</span></h1>
+							crear tu idea.
+						</h1>
 					</div>
 				</div>
 			</div>
@@ -27,7 +29,7 @@ import Layout from '../layouts/Layout.astro';
 						<div class="contact-one__left">
 							<div class="contact-one__left-content">
 								<div class="contact-one__title-box">
-									<h2>Contactanos en nuestras <br> Redes Sociales</h2>
+									<h2>Escribinos por nuestras <br> redes sociales</h2>
 									<p>Las grandes ideas comienzan por un sueño, y nosotros somos quienes las convertimos en realidad.</p>
 								</div>
 								<ul class="contact-one__contact-list">
@@ -61,8 +63,8 @@ import Layout from '../layouts/Layout.astro';
 									</li>
 								</ul>
 								<div class="contact-one__social">
-									<a href="https://github.com/JeremiasBarolo" target="_blank" rel="noopener noreferrer" aria-label="GitHub de ON Bjorn"><span class="icon-social-1" aria-hidden="true"></span></a>
-									<a href="https://www.instagram.com/on_bjorn/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ON Bjorn"><span class="icon-social-5" aria-hidden="true"></span></a>
+									<a href="https://github.com/JeremiasBarolo" target="_blank" rel="noopener noreferrer" aria-label="GitHub de ON BJORN"><span class="icon-social-1" aria-hidden="true"></span></a>
+									<a href="https://www.instagram.com/on_bjorn/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ON BJORN"><span class="icon-social-5" aria-hidden="true"></span></a>
 									<a href="https://www.linkedin.com/in/jeremias-barolo-721083250" target="_blank" rel="noopener noreferrer" class="icon-social" aria-label="LinkedIn de Jeremias Barolo">
 										<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin" aria-hidden="true">
 											<path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -74,6 +76,7 @@ import Layout from '../layouts/Layout.astro';
 										</svg>
 									</a>
 								</div>
+								<p class="contact-one__response-time">Respondemos en menos de 24 horas hábiles.</p>
 							</div>
 						</div>
 					</div>
@@ -81,7 +84,7 @@ import Layout from '../layouts/Layout.astro';
 						<div class="map-container">
 							<iframe 
 								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105073.45340225006!2d-58.515698696010766!3d-34.61565477009822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires%2C%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1715527990118!5m2!1ses-419!2sar" 
-								title="Mapa de ubicación de ON Bjorn en Buenos Aires"
+								title="Mapa de ubicación de ON BJORN en Buenos Aires"
 								allowfullscreen
 								loading="lazy" 
 								referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -122,6 +125,12 @@ import Layout from '../layouts/Layout.astro';
 
 	.contact-one {
 		padding-bottom: 80px;
+	}
+
+	.contact-one__response-time {
+		margin-top: 24px;
+		color: var(--thm-base, #FF6C1E);
+		font-weight: 600;
 	}
 
 	.page-title {

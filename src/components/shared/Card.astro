@@ -1,17 +1,18 @@
 ---
 interface Props {
-    icon: string;
+    iconSrc: string;
     title: string;
     content: string;
 }
-const {icon, title, content} = Astro.props;
+const {iconSrc, title, content} = Astro.props;
+const iconStyle = `--icon-url: url('${iconSrc}')`;
 
 ---
 
 
 <div class="solutions-one__single">
     <div class="solutions-one__icon">
-        <h2 aria-hidden="true">{icon}</h2>
+        <span class="service-icon" style={iconStyle} aria-hidden="true"></span>
     </div>
     <h4 class="solutions-one__title">{title}</h4>
     <p class="solutions-one__text">
@@ -23,5 +24,14 @@ const {icon, title, content} = Astro.props;
 <style>
    .solutions-one__text {
     white-space: normal;
+}
+
+.service-icon {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background-color: var(--thm-base, #FF6C1E);
+    mask: var(--icon-url) center / contain no-repeat;
+    -webkit-mask: var(--icon-url) center / contain no-repeat;
 }
 </style>

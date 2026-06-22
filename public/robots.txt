@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://onbjorn.com/sitemap-index.xml

@@ -1,12 +1,10 @@
-	<!-- Feature One Start -->
+﻿	<!-- Feature One Start -->
     <section class="feature-one">
         <div class="container">
             <div class="feature-one__inner">
                 <h1 class="feature-one__title">
                     Potencia tu emprendimiento online<br>
                     con nuestros servicios <span>Web</span> 
-                    <br>
-                    <span aria-hidden="true">🚀</span>
                 </h1>
             
                 <div class="feature-one__main-content-box">
@@ -18,25 +16,25 @@
                             <li>
                                 <div class="feature-one__single">
                                     <div class="feature-one__icon">
-                                        <h2 aria-hidden="true">🌀</h2>
+                                        <span class="feature-service-icon" style="--icon-url: url('/images/icons/services/desarrollo-web.svg')" aria-hidden="true"></span>
                                     </div>
                                     <h5 class="feature-one__title-2"><a href="/#services">Desarrollo<br>
-                                            Web</a></h5>
+                                            web</a></h5>
                                 </div>
                             </li>
                             <li>
                                 <div class="feature-one__single">
                                     <div class="feature-one__icon">
-                                        <h2 aria-hidden="true">🎨</h2>
+                                        <span class="feature-service-icon" style="--icon-url: url('/images/icons/services/rebranding.svg')" aria-hidden="true"></span>
                                     </div>
                                     <h5 class="feature-one__title-2"><a href="/#services">Rebranding<br>
-                                            Marca</a></h5>
+                                            de marca</a></h5>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="feature-one__main-content-middle">
-                        <div class="feature-one__start-1 zoominout" aria-hidden="true">
+                        <div class="feature-one__start-1" aria-hidden="true">
                             <img src="/images/shapes/feature-one-star-1.png" alt="" loading="lazy">
                         </div>
                         <div class="feature-one__start-2 float-bob-x" aria-hidden="true">
@@ -46,7 +44,7 @@
                             <img src="/images/shapes/feature-one-star-3.png" alt="" loading="lazy">
                         </div>
 
-                        <div class="feature-one__start-5 zoominout" aria-hidden="true">
+                        <div class="feature-one__start-5" aria-hidden="true">
                             <img src="/images/shapes/feature-one-star-5.png" alt="" loading="lazy">
                         </div>
                         <div class="feature-one__start-6 float-bob-x" aria-hidden="true">
@@ -60,7 +58,7 @@
                             <li>
                                 <div class="feature-one__single">
                                     <div class="feature-one__icon">
-                                        <h2 aria-hidden="true">👟</h2>
+                                        <span class="feature-service-icon" style="--icon-url: url('/images/icons/services/e-commerce.svg')" aria-hidden="true"></span>
                                     </div>
                                     <h5 class="feature-one__title-2"><a href="/#services">E-commerce</a>
                                     </h5>
@@ -68,21 +66,21 @@
                             </li>
                             <li>
                                 <div class="feature-one__cpu-icon-box">
-                                    <img src="/images/resource/ON_BJORN_ISO.png" alt="Logo de ON Bjorn">
+                                    <img src="/images/resource/ON_BJORN_ISO.png" alt="Logo de ON BJORN">
                                 </div>
                             </li>
                             <li>
                                 <div class="feature-one__single">
                                     <div class="feature-one__icon">
-                                        <h2 aria-hidden="true">💼</h2>
+                                        <span class="feature-service-icon" style="--icon-url: url('/images/icons/services/webs-empresariales.svg')" aria-hidden="true"></span>
                                     </div>
-                                    <h5 class="feature-one__title-2"><a href="/#services">Web Empresariales</a></h5>
+                                    <h5 class="feature-one__title-2"><a href="/#services">Webs empresariales</a></h5>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="feature-one__main-content-bottom">
-                        <div class="feature-one__start-4 zoominout" aria-hidden="true">
+                        <div class="feature-one__start-4" aria-hidden="true">
                             <img src="/images/shapes/feature-one-star-4.png" alt="" loading="lazy">
                         </div>
                         <div class="feature-one__start-8 float-bob-x" aria-hidden="true">
@@ -92,18 +90,18 @@
                             <li>
                                 <div class="feature-one__single">
                                     <div class="feature-one__icon">
-                                        <h2 aria-hidden="true">📑</h2>
+                                        <span class="feature-service-icon" style="--icon-url: url('/images/icons/services/portfolio-web.svg')" aria-hidden="true"></span>
                                     </div>
-                                    <h5 class="feature-one__title-2"><a href="/#services">Portfolio / CV <br> Web Interactivo</a>
+                                    <h5 class="feature-one__title-2"><a href="/#services">Portfolio web <br> interactivo</a>
                                     </h5>
                                 </div>
                             </li>
                             <li>
                                 <div class="feature-one__single">
                                     <div class="feature-one__icon">
-                                        <h2 aria-hidden="true">📦</h2>
+                                        <span class="feature-service-icon" style="--icon-url: url('/images/icons/services/sistemas-stock.svg')" aria-hidden="true"></span>
                                     </div>
-                                    <h5 class="feature-one__title-2"><a href="/#services">Sistemas <br> Stock</a>
+                                    <h5 class="feature-one__title-2"><a href="/#services">Sistemas <br> de stock</a>
                                     </h5>
                                 </div>
                             </li>
@@ -129,4 +127,13 @@
 			line-height: 40px;
 		}
 	}
+
+    .feature-service-icon {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: var(--thm-base, #FF6C1E);
+        mask: var(--icon-url) center / contain no-repeat;
+        -webkit-mask: var(--icon-url) center / contain no-repeat;
+    }
 </style>
