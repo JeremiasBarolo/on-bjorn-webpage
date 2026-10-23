@@ -1,0 +1,180 @@
+---
+import { Image, getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import "../../styles/projects.css";
+interface Props {
+  id: string;
+  title: string;
+  domain: string;
+  tone: "gbl" | "marca" | "riesgo";
+  desktop: ImageMetadata;
+  mobile: ImageMetadata;
+  detail: ImageMetadata;
+  detailLabel: string;
+  compact?: boolean;
+}
+const {
+  id,
+  title,
+  domain,
+  tone,
+  desktop,
+  mobile,
+  detail,
+  detailLabel,
+  compact = false,
+} = Astro.props;
+const views = await Promise.all(
+  [
+    {
+      label: "Escritorio",
+      image: desktop,
+      alt: `${title}: sitio público en escritorio`,
+    },
+    {
+      label: detailLabel,
+      image: detail,
+      alt: `${title}: ${detailLabel.toLowerCase()}`,
+    },
+    {
+      label: "Móvil",
+      image: mobile,
+      alt: `${title}: sitio público en un celular`,
+    },
+  ].map(async (view) => ({
+    ...view,
+    optimized:
+      view.image.format === "svg"
+        ? { src: view.image.src }
+        : await getImage({ src: view.image, format: "webp", quality: 92 }),
+  })),
+);
+const widths = [
+  ...new Set(
+    [640, 1000, desktop.width].filter((width) => width <= desktop.width),
+  ),
+];
+---
+
+<figure
+  class:list={[
+    "project-showcase",
+    `showcase-${tone}`,
+    { "showcase-compact": compact },
+  ]}
+>
+  <a
+    class="showcase-stage"
+    href={views[0].optimized.src}
+    data-gallery-open={id}
+    aria-haspopup="dialog"
+    aria-controls={id}
+    aria-label={`Explorar las pantallas de ${title}`}
+  >
+    <div class="showcase-browser">
+      <div class="showcase-browser-bar" aria-hidden="true">
+        <span class="window-dots"><i></i><i></i><i></i></span><span
+          >{domain}</span
+        ><span>↗</span>
+      </div>
+      <Image
+        src={desktop}
+        alt={`${title}: vista de escritorio del sitio publicado`}
+        widths={widths}
+        sizes={compact
+          ? "(max-width: 699px) 76vw, 38vw"
+          : "(max-width: 699px) 76vw, 74vw"}
+        quality={90}
+        format="webp"
+        loading="lazy"
+      />
+    </div>
+    <div class="showcase-phone" aria-hidden="true">
+      <div class="phone-speaker"></div><Image
+        src={mobile}
+        alt=""
+        width={mobile.width}
+        height={mobile.height}
+        quality={88}
+        format="webp"
+        loading="lazy"
+      />
+    </div>
+    <span class="showcase-expand" aria-hidden="true"
+      >Ver pantallas <span>↗</span></span
+    >
+  </a>
+  <figcaption>
+    <span
+      >Escritorio y móvil <span aria-hidden="true">/</span> Sitio publicado</span
+    ><a
+      href={views[0].optimized.src}
+      data-gallery-open={id}
+      aria-haspopup="dialog"
+      aria-controls={id}
+      >Explorar en detalle <span aria-hidden="true">↗</span></a>
+  </figcaption>
+</figure>
+<dialog
+  id={id}
+  class="project-gallery"
+  data-project-gallery
+  aria-labelledby={`${id}-title`}
+>
+  <div class="gallery-header">
+    <div>
+      <p class="eyebrow">PANTALLAS DEL PROYECTO</p><h2 id={`${id}-title`}>
+        {title}
+      </h2>
+    </div><button
+      class="gallery-close"
+      type="button"
+      data-gallery-close
+      aria-label="Cerrar galería"
+      >Cerrar <span aria-hidden="true">×</span></button>
+  </div>
+  <div class="gallery-toolbar">
+    <div class="gallery-views" aria-label="Elegir pantalla">
+      {
+        views.map((view, i) => (
+          <button type="button" data-gallery-select={i} aria-pressed={i === 0}>
+            {view.label}
+          </button>
+        ))
+      }
+    </div><button
+      type="button"
+      class="gallery-zoom"
+      data-gallery-zoom
+      aria-pressed="false"
+      >Tamaño real <span aria-hidden="true">↗</span></button>
+  </div>
+  <div class="gallery-viewport">
+    {
+      views.map((view, i) => (
+        <figure
+          data-gallery-view={i}
+          hidden={i !== 0}
+          class:list={{ "gallery-mobile-view": i === 2 }}
+        >
+          <>
+            <img
+              src={view.optimized.src}
+              width={view.image.width}
+              height={view.image.height}
+              alt={view.alt}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              {title} · {view.label} · {domain}
+            </figcaption>
+          </>
+        </figure>
+      ))
+    }
+  </div>
+</dialog>
+<script>
+  import "../../scripts/project-gallery";
+</script>

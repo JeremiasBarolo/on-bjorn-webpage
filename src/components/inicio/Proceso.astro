@@ -1,0 +1,37 @@
+---
+import { processSteps } from "../../data/process";
+---
+
+<section
+  id="process"
+  class="section theme-dark"
+  aria-labelledby="process-heading"
+>
+  <div class="shell">
+    <p class="eyebrow section-rule">CÓMO TRABAJAMOS</p><div
+      class="section-intro"
+      data-reveal
+    >
+      <h2 id="process-heading" class="display-title">
+        De la idea<br />a la solución.
+      </h2><p>
+        Cada proyecto empieza por entender qué necesitás. A partir de ahí,
+        definimos una propuesta y avanzamos con entregas para revisar juntos.
+      </p>
+    </div><ol class="process-list">
+      {
+        processSteps.map((step, i) => (
+          <li data-reveal>
+            <>
+              <span class="process-number" aria-hidden="true">
+                0{i + 1}
+              </span>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

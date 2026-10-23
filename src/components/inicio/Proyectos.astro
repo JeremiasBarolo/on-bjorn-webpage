@@ -1,157 +1,69 @@
-<!-- Solutions Two Start -->
-<section class="solutions-two" id="projects">
-    <div class="container">
-        
+---
+import ProjectShowcase from "../shared/ProjectShowcase.astro";
+import desktop from "../../assets/projects/gbl-desktop.jpg";
+import mobile from "../../assets/projects/gbl-mobile.jpg";
+import detail from "../../assets/projects/gbl-detail.jpg";
+---
 
-        <div class="solutions-two__content-one js-reveal" data-reveal>
-            <div class="solutions-two__shape-1"
-                style="background-image: url(/images/shapes/solutions-two-shape-1.png);" aria-hidden="true"></div>
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="solutions-two__content-one-left">
-                        <div class="solutions-two__shape-2" aria-hidden="true">
-                            <img src="/images/shapes/solutions-two-shape-2.png" alt="" loading="lazy">
-                        </div>
-                        <div class="solutions-two__content-one-title-box">
-                            <p>GBL-Ingeniería</p>
-                            <h3>Ingeniería integral en movimiento.
-                            </h3>
-                        </div>
-                        <p class="solutions-two__content-one-text-1">
-                            GBL-Ingeniería confió en nosotros para desarrollar su web empresarial. <br>
-                            Logramos mantener su imagen y desplegar su gran variedad de proyectos. <br><br>
-                            Visitá su web: <a href="http://gblingenieria.com.ar/" target="_blank" rel="noopener noreferrer">GBL-Ingeniería</a>
-                        </p>
-                        <ul class="solutions-two__content-one-points">
-                            <li>
-                                <div class="icon">
-                                    <i class="fal fa-check" aria-hidden="true"></i>
-                                </div>
-                                <div class="text">
-                                    <p>Web de aterrizaje de tres secciones.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="fal fa-check" aria-hidden="true"></i>
-                                </div>
-                                <div class="text">
-                                    <p>Despliegue de la aplicación hacia la web.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="fal fa-check" aria-hidden="true"></i>
-                                </div>
-                                <div class="text">
-                                    <p>Integración de Google Maps dentro de la web.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="solutions-two__content-one-right">
-                        <div class="solutions-two__content-one-img-box">
-                            <div class="solutions-two__content-one-img">
-                                <img src="/images/resource/gbl-ingenieria-inicio.png" alt="Captura del sitio web de GBL-Ingeniería" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="solutions-two__content-two">
-            <div class="row">
-
-
-                <!--Solutions Two Single Start-->
-                <div class="col-xl-6 col-lg-6 js-reveal" data-reveal>
-                    <div class="solutions-two__content-two-single">
-                        <div class="solutions-two__content-two-top">
-                            <div class="solutions-two__content-two-title-box">
-                                <p>CoffinWeb</p>
-                                <h3>Sistema de stock y control para funeraria.</h3>
-                            </div>
-                            <p class="solutions-two__content-two-text-1">
-                                Desarrollamos un sistema de stock llamado CoffinWeb para una funeraria ubicada en General Deheza. <br>
-                                Este incluye un sistema de pedidos y facturación.
-                            </p>
-                        </div>
-                        <div class="solutions-two__content-two-img-box">
-                            <div class="solutions-two__content-two-shape-1" aria-hidden="true">
-                                <img src="/images/shapes/solutions-two-content-two-shape-1.png" alt="" loading="lazy">
-                            </div>
-                            <div class="solutions-two__content-two-img">
-                                <img src="/images/resource/coffinweb-inicio.jpg" alt="Captura del sistema CoffinWeb" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Solutions Two Single End-->
-
-
-                <!--Solutions Two Single Start-->
-                <div class="col-xl-6 col-lg-6 js-reveal" data-reveal>
-                    <div class="solutions-two__content-two-single solutions-two__content-two-single-2">
-                        <div class="solutions-two__content-two-top">
-                            <div class="solutions-two__content-two-title-box">
-                                <p>Nails Ailen</p>
-                                <h3>Pedicuría y manicuría de la más alta calidad.</h3>
-                            </div>
-                            <p class="solutions-two__content-two-text-1">
-                                Desarrollamos una web de aterrizaje para un emprendimiento localizado en Carlos Paz, Córdoba. <br>
-                                Esta cuenta con conexión directa a WhatsApp.
-                                <br>
-                                <br>
-                                Visitá su web: <a href="https://nailsailen.vercel.app/" target="_blank" rel="noopener noreferrer">Nails Ailen</a>
-                            </p>
-                        </div>
-                        <div class="solutions-two__content-two-img-box">
-                            <div class="solutions-two__content-two-img">
-                                <img src="/images/resource/nails-ailen-inicio.jpg" alt="Captura del sitio web de Nails Ailen" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Solutions Two Single End-->
-            </div>
-        </div>
+<section
+  id="projects"
+  class="section theme-light"
+  aria-labelledby="projects-heading"
+>
+  <div class="shell">
+    <p class="eyebrow section-rule">PROYECTO DESTACADO · ON BJORN</p>
+    <div class="project-heading" data-reveal>
+      <div>
+        <p class="case-category">Web empresarial / Ingeniería estructural</p><h2
+          id="projects-heading"
+          class="display-title"
+        >
+          GBL-Ingeniería<span class="blue-dot">.</span>
+        </h2>
+      </div><a
+        class="text-link"
+        href="https://gblingenieria.com.ar/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Ver sitio en vivo <span aria-hidden="true">↗</span></a>
     </div>
+    <ProjectShowcase
+      id="gallery-gbl"
+      title="GBL Ingeniería"
+      domain="gblingenieria.com.ar"
+      tone="gbl"
+      desktop={desktop}
+      mobile={mobile}
+      detail={detail}
+      detailLabel="Portfolio de obras"
+    />
+    <div class="project-caption" data-reveal>
+      <h3>Una web a la altura<br />de su ingeniería.</h3><p>
+        Un sitio para presentar al estudio, dar lugar a su trabajo técnico y
+        hacer más simple el primer contacto. La experiencia reúne la
+        presentación institucional, el portfolio de obras y los canales de
+        consulta.
+      </p>
+    </div>
+    <dl class="case-scope" data-reveal>
+      <div>
+        <dt>Presentación</dt><dd>
+          Identidad del estudio, especialidad y propuesta de trabajo.
+        </dd>
+      </div><div>
+        <dt>Proyectos</dt><dd>
+          Obras, imágenes y fichas para recorrer su experiencia.
+        </dd>
+      </div><div>
+        <dt>Contacto</dt><dd>
+          Canales de consulta y acceso a la ubicación en Google Maps.
+        </dd>
+      </div>
+    </dl>
+    <ul class="tags" aria-label="Alcance del proyecto">
+      <li>Web empresarial</li><li>Desarrollo y publicación</li><li>
+        Google Maps
+      </li>
+    </ul>
+  </div>
 </section>
-
-<style>
-    .solutions-two__content-one-title-box p,
-    .solutions-two__content-two-title-box p {
-        margin-bottom: 14px;
-    }
-
-    .solutions-two__content-one-title-box h3,
-    .solutions-two__content-two-title-box h3 {
-        line-height: 1.32;
-        margin-bottom: 22px;
-    }
-
-    .solutions-two__content-one-text-1,
-    .solutions-two__content-two-text-1 {
-        line-height: 1.75;
-        margin-bottom: 26px;
-    }
-
-    .solutions-two__content-one-points {
-        margin-top: 28px;
-    }
-
-    @media (max-width: 767px) {
-        .solutions-two__content-one-title-box h3,
-        .solutions-two__content-two-title-box h3 {
-            line-height: 1.38;
-            margin-bottom: 18px;
-        }
-
-        .solutions-two__content-one-text-1,
-        .solutions-two__content-two-text-1 {
-            line-height: 1.7;
-        }
-    }
-</style>

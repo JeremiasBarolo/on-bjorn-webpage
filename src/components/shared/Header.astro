@@ -1,148 +1,59 @@
-﻿---
-
+---
+import { site } from "../../data/site";
+const links = [
+  { href: "/#projects", label: "Proyectos" },
+  { href: "/#services", label: "Servicios" },
+  { href: "/#process", label: "Cómo trabajamos" },
+];
 ---
 
-<!-- Main Header -->
-	<header class="main-header main-header-one ">
-			
-		<!-- Header Lower -->
-		<div class="header-lower">
-
-			<div class="main-menu__wrapper">
-				<div class="inner-container d-flex align-items-center justify-content-between">
-
-					<!-- Logo Box -->
-					<div class="main-header-one__logo-box">
-						<a href="/"> <img class="logo" src="/images/resource/marca-de-agua.png" alt="ON BJORN — Inicio"></a>
-					</div>
-
-					<div class="nav-outer">
-
-						<!-- Main Menu -->
-						<nav class="main-menu show navbar-expand-md" aria-label="Navegación principal">
-							<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
-								<ul class="navigation clearfix">
-									<li><a href="/">Inicio</a></li>
-									<li><a href="/#services">Servicios</a></li>
-									<li><a href="/#projects">Proyectos</a></li>
-									<li><a href="/#faq">Preguntas frecuentes</a></li>
-									<li><a href="/about">Sobre nosotros</a></li>
-									<li><a href="/contact">Contacto</a></li>
-								</ul>
-							</div>
-
-						</nav>
-						<!-- Main Menu End-->
-
-					</div>
-
-					<!-- Outer Box -->
-					<div class="outer-box d-flex align-items-center">
-
-						<!-- Mobile Navigation Toggler -->
-						<button type="button" class="mobile-nav-toggler" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
-							<span class="icon-menu" aria-hidden="true"></span>
-						</button>
-
-					</div>
-					<!-- End Outer Box -->
-
-				</div>
-
-			</div>
-		</div>
-		<!-- End Header Lower -->
-
-		<!-- Mobile Menu  -->
-		<div class="mobile-menu" id="mobile-menu">
-			<div class="menu-backdrop"></div>
-			<button type="button" class="close-btn" aria-label="Cerrar menú de navegación"><span class="icon far fa-times fa-fw" aria-hidden="true"></span></button>
-			<nav class="menu-box" aria-label="Navegación móvil">
-				<div class="nav-logo"><a href="/"><img src="/images/resource/marca-de-agua.png" alt="ON BJORN — Inicio"></a></div>
-				<div class="menu-outer">
-					
-				</div>
-			</nav>
-		</div>
-		<!-- End Mobile Menu -->
-	</header>
-<!-- End Main Header -->
-<style>
-.main-header-one.fixed-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 9999;
-    background-color: var(--thm-black);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Resets para los toggles convertidos a <button> */
-button.mobile-nav-toggler,
-button.close-btn {
-    background: none;
-    border: none;
-    padding: 0;
-    color: inherit;
-    cursor: pointer;
-}
-
-.mobile-menu .menu-box {
-    overscroll-behavior: contain;
-}
-</style>
-
+<header class="site-header shell">
+  <a class="brand-link" href="/" aria-label="ON BJORN, inicio"
+    ><img
+      src="/images/resource/marca-de-agua.png"
+      alt="ON BJORN"
+      width="374"
+      height="68"
+    /></a
+  >
+  <nav class="desktop-nav" aria-label="Principal">
+    {links.map((link) => <a href={link.href}>{link.label}</a>)}
+  </nav>
+  <a class="button button-outline header-contact" href={site.whatsapp}
+    >Hablemos <span aria-hidden="true">↗</span></a
+  >
+  <details class="mobile-menu">
+    <summary>Menú <span class="menu-mark" aria-hidden="true">+</span></summary
+    ><nav aria-label="Principal móvil">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}<a
+        href="/about">Sobre ON BJORN</a
+      ><a href={site.whatsapp}>Hablemos ↗</a>
+    </nav>
+  </details>
+</header>
 <script>
-	document.addEventListener('DOMContentLoaded', function () {
-		const header = document.querySelector('.main-header-one');
-		const toggler = document.querySelector('.mobile-nav-toggler');
-		const mobileMenuOuter = document.querySelector('.mobile-menu .menu-box .menu-outer');
-		const mainMenu = document.querySelector('.main-header .nav-outer .main-menu');
-
-		// Header fijo al hacer scroll (throttle con rAF)
-		if (header) {
-			let ticking = false;
-			window.addEventListener('scroll', function () {
-				if (ticking) return;
-				ticking = true;
-				window.requestAnimationFrame(function () {
-					header.classList.toggle('fixed-header', window.scrollY > 50);
-					ticking = false;
-				});
-			}, { passive: true });
-		}
-
-		// Menú móvil
-		function setMobileMenu(open) {
-			document.body.classList.toggle('mobile-menu-visible', open);
-			if (toggler) toggler.setAttribute('aria-expanded', String(open));
-			if (open) {
-				const firstLink = document.querySelector('.mobile-menu .menu-outer a');
-				if (firstLink) firstLink.focus();
-			} else if (toggler) {
-				toggler.focus();
-			}
-		}
-
-		function toggleMobileMenu() {
-			setMobileMenu(!document.body.classList.contains('mobile-menu-visible'));
-		}
-
-		if (mainMenu && mobileMenuOuter && mobileMenuOuter.children.length === 0) {
-			const clone = mainMenu.querySelector('.navigation');
-			if (clone) mobileMenuOuter.appendChild(clone.cloneNode(true));
-		}
-
-		if (toggler) toggler.addEventListener('click', toggleMobileMenu);
-
-		document.querySelectorAll('.mobile-menu .menu-backdrop, .mobile-menu .close-btn').forEach(function (el) {
-			el.addEventListener('click', function () { setMobileMenu(false); });
-		});
-
-		document.addEventListener('keydown', function (e) {
-			if (e.key === 'Escape' && document.body.classList.contains('mobile-menu-visible')) {
-				setMobileMenu(false);
-			}
-		});
-	});
+  const menu = document.querySelector<HTMLDetailsElement>(".mobile-menu");
+  const trigger = menu?.querySelector("summary");
+  menu?.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      menu.open = false;
+      trigger?.focus();
+    }
+  });
+  menu?.querySelectorAll("a").forEach((link) =>
+    link.addEventListener("click", () => {
+      menu.open = false;
+    }),
+  );
+  document.addEventListener("click", (event) => {
+    if (
+      menu?.open &&
+      event.target instanceof Node &&
+      !menu.contains(event.target)
+    )
+      menu.open = false;
+  });
+  matchMedia("(min-width: 900px)").addEventListener("change", (event) => {
+    if (event.matches && menu) menu.open = false;
+  });
 </script>

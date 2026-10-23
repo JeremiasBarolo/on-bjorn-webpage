@@ -1,67 +1,38 @@
 export const faqs = [
   {
-    id: 'faq-1',
-    pregunta: '¿Por qué necesito una web?',
-    respuestaHtml: `Tener una página web profesional ayuda a que tu emprendimiento sea encontrable, confiable y fácil de contactar. <br><br>
-      Sin presencia online, perdés oportunidades de venta, consultas y posicionamiento de marca frente a clientes que buscan soluciones desde el celular o la computadora.
-      <br><br>
-      Una web también funciona como base para campañas, catálogo, portfolio, e-commerce o sistemas internos.`,
+    id: "projects",
+    pregunta: "¿Qué proyectos puedo consultar?",
     respuestaTexto:
-      'Tener una página web profesional ayuda a que tu emprendimiento sea encontrable, confiable y fácil de contactar. Sin presencia online, perdés oportunidades de venta, consultas y posicionamiento de marca frente a clientes que buscan soluciones desde el celular o la computadora. Una web también funciona como base para campañas, catálogo, portfolio, e-commerce o sistemas internos.',
+      "Webs, tiendas online, software a medida, automatizaciones, integraciones, agentes y flujos de IA. También podemos coordinar branding y diseño. Si tu necesidad es diferente, contanos qué querés resolver y evaluamos su viabilidad y alcance.",
   },
   {
-    id: 'faq-2',
-    pregunta: '¿Qué necesito para crear mi web?',
-    respuestaHtml: `Primero necesitamos conversar sobre tu objetivo, tus clientes y el contenido principal del proyecto. <br><br>
-      Para empezar, suele alcanzar con un correo electrónico, textos base, logo si ya lo tenés e imágenes representativas de tus productos, servicios o marca.
-      <br><br>
-      Si todavía no tenés imágenes, podemos usar recursos visuales de alta calidad mientras armamos la primera versión.`,
+    id: "start",
+    pregunta: "¿Qué necesito para empezar?",
     respuestaTexto:
-      'Primero necesitamos conversar sobre tu objetivo, tus clientes y el contenido principal del proyecto. Para empezar, suele alcanzar con un correo electrónico, textos base, logo si ya lo tenés e imágenes representativas de tus productos, servicios o marca. Si todavía no tenés imágenes, podemos usar recursos visuales de alta calidad mientras armamos la primera versión.',
+      "Contanos el objetivo de tu proyecto y qué necesitás resolver. Si ya tenés logo, textos, imágenes o una herramienta en uso, ese material ayuda a evaluar el alcance. No necesitás tener definida la tecnología.",
   },
   {
-    id: 'faq-3',
-    pregunta: '¿Cómo hago que mi web se vea online?',
-    respuestaHtml: `Para que tu web esté online hay que publicarla en un servicio de hosting. <br>
-      <strong>El hosting es el espacio donde se guardan los archivos de tu web para que otras personas puedan visitarla.</strong>
-      <br><br>
-      Podemos ayudarte con el deploy inicial y orientarte sobre opciones gratuitas o pagas según el tamaño, velocidad y dominio que necesite tu proyecto.`,
+    id: "budget",
+    pregunta: "¿Cómo se define el presupuesto?",
     respuestaTexto:
-      'Para que tu web esté online hay que publicarla en un servicio de hosting. El hosting es el espacio donde se guardan los archivos de tu web para que otras personas puedan visitarla. Podemos ayudarte con el deploy inicial y orientarte sobre opciones gratuitas o pagas según el tamaño, velocidad y dominio que necesite tu proyecto.',
+      "Depende del alcance, las funciones, el diseño y las integraciones que requiera el proyecto. Con esa información preparamos una propuesta con los entregables y costos previstos.",
   },
   {
-    id: 'faq-4',
-    pregunta: '¿Cómo sé qué aplicación necesito para mi emprendimiento?',
-    respuestaHtml: `No tengas miedo de escribirnos para preguntar. Evaluamos tu objetivo, el momento de tu emprendimiento y el tipo de experiencia que querés ofrecer.
-      <br><br>
-      Con esa información te recomendamos si conviene una landing page, una web institucional, un e-commerce, un portfolio o un sistema a medida.`,
+    id: "time",
+    pregunta: "¿Cuánto tarda un proyecto?",
     respuestaTexto:
-      'No tengas miedo de escribirnos para preguntar. Evaluamos tu objetivo, el momento de tu emprendimiento y el tipo de experiencia que querés ofrecer. Con esa información te recomendamos si conviene una landing page, una web institucional, un e-commerce, un portfolio o un sistema a medida.',
+      "Los tiempos dependen del alcance, el contenido y las integraciones. Después de entender la necesidad, definimos una estimación en la propuesta.",
   },
   {
-    id: 'faq-5',
-    pregunta: '¿Cuánto tiempo tardaría en tener mi aplicación?',
-    respuestaHtml: `El tiempo depende de la cantidad de secciones, contenido, diseño e integraciones del proyecto.
-      <br><br>
-      Después de entender tu necesidad, te damos una estimación clara con tiempos aproximados y alcance definido antes de avanzar.`,
+    id: "branding",
+    pregunta: "¿Se puede incluir branding y diseño?",
     respuestaTexto:
-      'El tiempo depende de la cantidad de secciones, contenido, diseño e integraciones del proyecto. Después de entender tu necesidad, te damos una estimación clara con tiempos aproximados y alcance definido antes de avanzar.',
+      "Sí. Podemos coordinar ese trabajo con agencias y profesionales independientes e incluirlo en la misma propuesta y presupuesto, según lo que necesite tu proyecto.",
   },
   {
-    id: 'faq-6',
-    pregunta: 'Tengo mi web terminada y mi servicio de hosting contratado. ¿Ustedes se encargan de subirla a la web?',
-    respuestaHtml: `Sí, podemos ayudarte a publicar tu web en un hosting contratado si ese servicio se incluye en el alcance del proyecto.
-      <br><br>
-      También podemos hacer un deploy inicial en una plataforma gratuita o recomendarte una alternativa paga cuando necesitás dominio propio, mejor velocidad o más control.`,
+    id: "launch",
+    pregunta: "¿La publicación y los servicios externos están incluidos?",
     respuestaTexto:
-      'Sí, podemos ayudarte a publicar tu web en un hosting contratado si ese servicio se incluye en el alcance del proyecto. También podemos hacer un deploy inicial en una plataforma gratuita o recomendarte una alternativa paga cuando necesitás dominio propio, mejor velocidad o más control.',
-  },
-  {
-    id: 'faq-7',
-    pregunta: '¿Con la compra de mi aplicación viene incluido el servicio de rebranding de marca?',
-    respuestaHtml: `<strong>No, el servicio de rebranding de marca es opcional.</strong> <br>
-      Lo recomendamos cuando tu marca necesita una identidad más clara antes de diseñar la web, porque eso ayuda a que el resultado final sea más consistente y profesional.`,
-    respuestaTexto:
-      'No, el servicio de rebranding de marca es opcional. Lo recomendamos cuando tu marca necesita una identidad más clara antes de diseñar la web, porque eso ayuda a que el resultado final sea más consistente y profesional.',
+      "La publicación y la puesta en marcha pueden formar parte del presupuesto. Los servicios externos, como dominio, hosting u otras herramientas, se detallan según lo que requiera el proyecto.",
   },
 ];

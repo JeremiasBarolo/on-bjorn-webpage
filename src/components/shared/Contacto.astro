@@ -1,38 +1,29 @@
+---
+import { site } from "../../data/site";
+---
 
-
-<section class="free-trail">
-    <div class="container">
-        <div class="free-trail__wrap">
-            <div class="free-trail__shape-3"
-                style="background-image: url(/images/shapes/free-trail-shape-3.png);" aria-hidden="true"></div>
-            <div class="free-trail__shape-1 float-bob-x" aria-hidden="true"></div>
-            <div class="free-trail__start-1" aria-hidden="true">
-                <img src="/images/shapes/free-trail-start-1.png" alt="" loading="lazy">
-            </div>
-            <div class="free-trail__start-2 float-bob-y" aria-hidden="true">
-                <img src="/images/shapes/free-trail-start-2.png" alt="" loading="lazy">
-            </div>
-            <div class="free-trail__start-3 float-bob-x" aria-hidden="true">
-                <img src="/images/shapes/free-trail-start-3.png" alt="" loading="lazy">
-            </div>
-            <div class="free-trail__start-4" aria-hidden="true">
-                <img src="/images/shapes/free-trail-start-4.png" alt="" loading="lazy">
-            </div>
-            <div class="free-trail__inner">
-                <div class="section-title text-center">
-                    <div class="section-title__tagline-box">
-                        <span class="section-title__tagline">¿Querés empezar a desarrollar tu aplicación?</span>
-                    </div>
-                    <h2 class="section-title__title">Escribinos para <br> empezar a desarrollar tu idea.
-                    </h2>
-                </div>
-                
-                <div class="free-trail__btn-box">
-                    <a href="/contact" class="thm-btn-two free-trail__btn">¡Comencemos! <i
-                            class="icon-up-right-arrow" aria-hidden="true"></i> </a>
-                </div>
-            </div>
-        </div>
+<section
+  class="section theme-dark contact-section"
+  aria-labelledby="contact-heading"
+>
+  <div class="shell">
+    <p class="eyebrow section-rule">HABLEMOS DE TU PROYECTO</p><div
+      class="contact-grid"
+    >
+      <h2 id="contact-heading" class="display-title" data-reveal>
+        Contanos qué<br />querés resolver<span class="blue-dot">.</span>
+      </h2><div class="contact-copy" data-reveal>
+        <p>
+          Una idea, una necesidad o algo que hoy te lleva demasiado tiempo.
+          Contanos y evaluamos cómo podemos ayudarte.
+        </p><a class="button" href={site.whatsapp}
+          >Escribinos por WhatsApp <span aria-hidden="true">↗</span></a
+        ><p class="email-alternative">
+          ¿Preferís escribir un mail?<br /><a
+            class="text-link"
+            href={"mailto:" + site.email}>{site.email}</a>
+        </p>
+      </div>
     </div>
-	
+  </div>
 </section>

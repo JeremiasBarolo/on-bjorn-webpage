@@ -1,53 +1,26 @@
-import Lenis from 'lenis';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const isMobile = window.matchMedia('(max-width: 767px)').matches;
-
-if (!reduceMotion) {
-  gsap.registerPlugin(ScrollTrigger);
-
-  if (!isMobile) {
-    const lenis = new Lenis({
-      duration: 1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1,
-      overscroll: false,
-      anchors: true,
-      prevent: (node) => node instanceof Element && Boolean(node.closest('#service-carousel')),
-    });
-
-    lenis.on('scroll', ScrollTrigger.update);
-
-    function raf(time: number) {
-      lenis.raf(time);
-      window.requestAnimationFrame(raf);
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
+if (!reducedMotion.matches && "IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        entry.target.animate(
+          [
+            { opacity: 0, transform: "translateY(20px)" },
+            { opacity: 1, transform: "translateY(0)" },
+          ],
+          { duration: 650, easing: "cubic-bezier(.2,.7,.2,1)" },
+        );
+      }),
+    { threshold: 0.12 },
+  );
+  elements.forEach((element) => observer.observe(element));
+  reducedMotion.addEventListener("change", (event) => {
+    if (event.matches) {
+      observer.disconnect();
+      document.getAnimations().forEach((animation) => animation.cancel());
     }
-
-    window.requestAnimationFrame(raf);
-  }
-
-  gsap.set('[data-reveal]', { autoAlpha: 0, y: 32 });
-
-  ScrollTrigger.batch('[data-reveal]', {
-    start: 'top 85%',
-    once: true,
-    onEnter: (elements) => {
-      gsap.to(elements, {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.7,
-        ease: 'power2.out',
-        stagger: 0.12,
-        overwrite: true,
-      });
-    },
   });
-
-  window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
 }

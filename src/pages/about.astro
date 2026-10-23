@@ -1,211 +1,54 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Contacto from '../components/shared/Contacto.astro'
-
-const processSteps = [
-    'Charla inicial y definición de objetivos',
-    'Propuesta, estructura y dirección visual',
-    'Desarrollo, revisión e iteración',
-    'Lanzamiento, entrega y acompañamiento',
-];
+import Experiencia from "../components/inicio/Experiencia.astro";
+import Proceso from "../components/inicio/Proceso.astro";
+import Contacto from "../components/shared/Contacto.astro";
+import { site } from "../data/site";
 ---
 
 <Layout
-    title="Sobre nosotros - ON BJORN"
-    description="Conocé al equipo, las herramientas y el proceso con el que desarrollamos tu marca online."
+  title="Sobre ON BJORN — Desarrollo y soluciones digitales"
+  description="Conocé el enfoque de ON BJORN: entender tu negocio y crear soluciones digitales a medida, desde una web hasta software, automatizaciones e inteligencia artificial."
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "Sobre ON BJORN",
+    url: site.url + "/about",
+  }}
 >
-<main id="main-content">
-<section class="page-title">
-    <div class="container">
-        <div class="page-title__inner">
-            <div class="page-title__shape-1"
-                style="background-image: url(/images/shapes/page-title-shape-1.png);" aria-hidden="true"></div>
-            <div class="page-title__title-box">
-                <h1 class="page-title__title">
-                    Desarrollamos tu marca online
-                    para mostrar tu trabajo al mundo
-                </h1>
-            </div>
-            <p class="page-title__text">
-                Potenciamos tu imagen para que tu presencia digital sea una herramienta concreta de crecimiento.
-            </p>
+  <section class="section page-intro shell">
+    <p class="eyebrow">SOBRE ON BJORN</p><h1 class="page-title" data-reveal>
+      La tecnología empieza<br />por entender tu negocio<span class="blue-dot"
+        >.</span>
+    </h1><p class="page-lead">
+      Creamos soluciones digitales a medida para empresas que necesitan
+      presentar lo que hacen, organizar su operación o conectar sus
+      herramientas.
+    </p>
+  </section>
+  <section class="section theme-light">
+    <div class="shell">
+      <p class="eyebrow section-rule">UN ENFOQUE A MEDIDA</p><div
+        class="section-intro"
+        data-reveal
+      >
+        <h2 class="display-title">
+          Una necesidad.<br />Una solución propia.
+        </h2><div>
+          <p>
+            Una web, una tienda online, software interno o un proceso que se
+            puede automatizar. El punto de partida es lo que tu negocio necesita
+            resolver.
+          </p><p>
+            Definimos el alcance, los entregables y las herramientas para cada
+            proyecto. Cuando hace falta branding o diseño, coordinamos ese
+            trabajo con agencias y profesionales independientes y podemos
+            incluirlo en la misma propuesta.
+          </p><a class="text-link" href="/#services"
+            >Explorá los servicios ↗</a>
         </div>
+      </div>
     </div>
-</section>
-
-<section class="about-one">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-5 col-lg-6">
-                <div class="about-one__left">
-                    <div class="about-one__left-content">
-                        <h2 class="about-one__title">Mejorá tu imagen. <br>
-                            Potencia tus ventas. <br>
-                            Emprendé online.
-                        </h2>
-                        <p class="about-one__text">
-                            Nuestra experiencia en desarrollo de aplicaciones y diseño interactivo ofrece el mejor producto
-                            para mantener y potenciar tu marca.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="team-one">
-    <div class="container">
-        <h2 class="team-one__title">
-            Conocé nuestras herramientas para hacer realidad tu objetivo
-        </h2>
-        <div class="row">
-            {[
-                ['astro.svg', 'Astro', 'Desarrollo web'],
-                ['file-type-angular.svg', 'Angular', 'Desarrollo web'],
-                ['node-js.svg', 'Express JS', 'Desarrollo web'],
-                ['react.svg', 'React', 'Desarrollo web'],
-                ['mysql.svg', 'MySQL', 'Desarrollo web'],
-                ['vercel.svg', 'Vercel', 'Desarrollo web'],
-                ['docker.svg', 'Docker', 'Desarrollo web'],
-                ['photoshop.svg', 'Photoshop', 'Diseño gráfico'],
-            ].map(([image, name, type]) => (
-                <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="team-one__single">
-                        <div class="team-one__img">
-                            <img src={`/images/resource/${image}`} alt={`Logo de ${name}`} loading="lazy">
-                        </div>
-                        <div class="team-one__content">
-                            <h4 class="team-one__name">{name}</h4>
-                            <p class="team-one__sub-title">{type}</p>
-                        </div>
-                    </div>
-                </div>
-            ))}
-        </div>
-    </div>
-</section>
-
-<section class="ai-product">
-    <div class="container">
-        <h2 class="ai-product__top-title">
-            Desarrollamos productos digitales con tecnologías actuales, foco en rendimiento y una experiencia clara para tus clientes.
-        </h2>
-        <div class="row">
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="ai-product__single">
-                    <div class="ai-product__icon">
-                        <i class="fal fa-handshake" aria-hidden="true"></i>
-                    </div>
-                    <h4 class="ai-product__title">Buscamos conocerte</h4>
-                    <p class="ai-product__text">
-                        Entendemos tu objetivo, tu público y el mensaje que necesitás comunicar antes de diseñar.
-                    </p>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="ai-product__single">
-                    <div class="ai-product__icon">
-                        <i class="fal fa-chart-line" aria-hidden="true"></i>
-                    </div>
-                    <h4 class="ai-product__title">Conocemos las tendencias</h4>
-                    <p class="ai-product__text">
-                        Combinamos diseño actual con decisiones funcionales para que la web se vea bien y sea fácil de usar.
-                    </p>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="ai-product__single">
-                    <div class="ai-product__icon">
-                        <i class="fal fa-tools" aria-hidden="true"></i>
-                    </div>
-                    <h4 class="ai-product__title">Proceso claro</h4>
-                    <p class="ai-product__text">
-                        Te guiamos en contenido, estructura, desarrollo y publicación para que sepas qué pasa en cada etapa.
-                    </p>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="ai-product__single">
-                    <div class="ai-product__icon">
-                        <i class="fal fa-rocket" aria-hidden="true"></i>
-                    </div>
-                    <h4 class="ai-product__title">Desarrollo, despliegue y resultados</h4>
-                    <p class="ai-product__text">
-                        Entregamos una web lista para mostrarse online, con una base preparada para seguir creciendo.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="work-process" aria-labelledby="work-process-title">
-    <div class="container">
-        <div class="section-title text-center">
-            <div class="section-title__tagline-box">
-                <span class="section-title__tagline">Cómo trabajamos</span>
-            </div>
-            <h2 class="section-title__title" id="work-process-title">Un proceso simple para avanzar con claridad</h2>
-        </div>
-        <div class="work-process__grid">
-            {processSteps.map((step, index) => (
-                <article class="work-process__item">
-                    <span class="work-process__number">{String(index + 1).padStart(2, '0')}</span>
-                    <h3>{step}</h3>
-                </article>
-            ))}
-        </div>
-    </div>
-</section>
-
-<Contacto />
-
-</main>
+  </section>
+  <Experiencia /><Proceso /><Contacto />
 </Layout>
-
-<style>
-    .work-process {
-        padding: 90px 0 70px;
-    }
-
-    .work-process__grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 22px;
-    }
-
-    .work-process__item {
-        border: 1px solid var(--thm-bdr-color);
-        border-radius: 8px;
-        background: var(--thm-main-bg);
-        padding: 26px 22px;
-        min-height: 160px;
-    }
-
-    .work-process__number {
-        display: block;
-        color: var(--thm-base, #FF6C1E);
-        font-weight: 700;
-        margin-bottom: 18px;
-    }
-
-    .work-process__item h3 {
-        color: var(--thm-white);
-        font-size: 20px;
-        line-height: 1.45;
-        margin: 0;
-    }
-
-    @media (max-width: 991px) {
-        .work-process__grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-    }
-
-    @media (max-width: 575px) {
-        .work-process__grid {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>

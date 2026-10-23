@@ -1,0 +1,43 @@
+<div class="logo-scene" data-logo-scene>
+  <div class="logo-stage">
+    <img
+      class="logo-fallback"
+      src="/images/resource/ON_BJORN_ISO.png"
+      alt="Símbolo de ON BJORN"
+      width="500"
+      height="500"
+      fetchpriority="high"
+    /><canvas
+      tabindex="0"
+      role="img"
+      aria-label="Logo blanco de ON BJORN en tres dimensiones, giratorio"
+      aria-describedby="logo-help"
+      hidden></canvas><div class="logo-shadow" aria-hidden="true"></div>
+  </div>
+  <div class="logo-controls" hidden>
+    <p id="logo-help">Arrastrá para girar · Flechas para rotar</p><div>
+      <button type="button" data-logo-pause aria-pressed="false"
+        >Pausar giro</button
+      ><button type="button" data-logo-reset>Ver frente</button>
+    </div>
+  </div>
+</div>
+<script>
+  const host = document.querySelector<HTMLElement>("[data-logo-scene]");
+  if (host) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect();
+          import("../../scripts/logo-scene")
+            .then(({ initLogo }) => initLogo(host))
+            .catch(() => {
+              /* Keep the original logo when WebGL is unavailable. */
+            });
+        }
+      },
+      { rootMargin: "100px" },
+    );
+    observer.observe(host);
+  }
+</script>

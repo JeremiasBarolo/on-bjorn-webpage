@@ -1,35 +1,21 @@
-﻿---
+---
 import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site";
 ---
 
-<Layout
-	title="Página no encontrada - ON BJORN"
-	description="La página que buscás no está disponible."
-	noindex={true}
+<Layout title="Página no encontrada | ON BJORN" noindex={true}
+  ><section class="section shell error-page">
+    <p class="eyebrow">PÁGINA NO ENCONTRADA</p><div
+      class="error-number"
+      aria-hidden="true"
+    >
+      404<span class="blue-dot">.</span>
+    </div><h1>Este camino no lleva a una página.</h1><p>
+      Podés volver al inicio o escribirnos para hablar de tu proyecto.
+    </p><div class="hero-actions">
+      <a class="button" href="/">Volver al inicio ↗</a><a
+        class="text-link"
+        href={site.whatsapp}>Hablemos por WhatsApp ↗</a>
+    </div>
+  </section></Layout
 >
-	<main id="main-content">
-		<section class="error-page full-height">
-			<div class="error-page__shape-1" aria-hidden="true">
-				<img src="/images/shapes/404-shape-1.png" alt="">
-			</div>
-			<div class="error-page__shape-2"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-12">
-						<div class="error-page__inner">
-							<div class="error-page__title-box">
-								<h1 class="error-page__title">404</h1>
-							</div>
-							<h2 class="error-page__tagline">¡Oops! Esta pantalla no está disponible.</h2>
-							<p class="error-page__text">La página a la que querés acceder ya no existe.</p>
-							<div class="error-page__btn-box">
-								<a href="/" class="error-page__btn thm-btn">Volvamos al inicio<span
-										class="icon-arrow-right" aria-hidden="true"></span></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</main>
-</Layout>

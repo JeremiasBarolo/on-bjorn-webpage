@@ -1,28 +1,29 @@
-﻿---
-const currentYear = new Date().getFullYear();
+---
+import { site } from "../../data/site";
 ---
 
-    <footer class="main-footer">
-        <div class="main-footer__shape-1 img-bounce"></div>
-        <div class="main-footer__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-6 col-md-6 js-reveal" data-reveal>
-                        <div class="footer-widget__column footer-widget__about">
-                            <div class="footer-widget__logo">
-                                <a href="/"><img src="/images/resource/marca-de-agua.png" alt="ON BJORN — Inicio" loading="lazy"></a>
-                            </div>
-                            <p class="footer-widget__about-text">Te ayudamos a dar el paso de calidad que tu emprendimiento necesita.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="main-footer__bottom">
-            <div class="container">
-                <div class="main-footer__bottom-inner">
-                    <p class="main-footer__bottom-text">Copyright © {currentYear} <a href="https://www.instagram.com/on_bjorn/" target="_blank" rel="noopener noreferrer">ON BJORN</a>. Todos los derechos reservados.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+<footer class="site-footer shell">
+  <div class="footer-top">
+    <a class="brand-link" href="/" aria-label="ON BJORN, inicio"
+      ><img
+        src="/images/resource/marca-de-agua.png"
+        alt="ON BJORN"
+        width="374"
+        height="68"
+        loading="lazy"
+      /></a
+    ><nav aria-label="Al pie">
+      <a href="/about">Sobre ON BJORN</a><a
+        href={site.instagram}
+        target="_blank"
+        rel="noopener noreferrer">Instagram ↗</a
+      ><a href={site.linkedin} target="_blank" rel="noopener noreferrer"
+        >LinkedIn ↗</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>© {new Date().getFullYear()} ON BJORN</span><span
+      >Buenos Aires, Argentina</span
+    ><a href="/contact">Contacto</a>
+  </div>
+</footer>

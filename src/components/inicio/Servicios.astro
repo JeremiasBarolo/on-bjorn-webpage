@@ -1,313 +1,62 @@
 ---
-import Card from '../shared/Card.astro'
-
-const servicios = [
-    {
-        iconSrc: '/images/icons/services/desarrollo-web.svg',
-        title: 'Desarrollo web',
-        content: 'Desarrollamos páginas web a medida para cada objetivo de nuestros clientes.',
-    },
-    {
-        iconSrc: '/images/icons/services/rebranding.svg',
-        title: 'Rebranding de marca',
-        content: 'Transformamos la imagen de tu marca con un rebranding claro, coherente y cautivador.',
-    },
-    {
-        iconSrc: '/images/icons/services/e-commerce.svg',
-        title: 'E-commerce',
-        content: 'Creamos tu negocio online para mostrar tus productos y potenciar tus ventas.',
-    },
-    {
-        iconSrc: '/images/icons/services/webs-empresariales.svg',
-        title: 'Webs empresariales',
-        content: 'Te ayudamos a profesionalizar tu empresa y fortalecer su presencia online.',
-    },
-    {
-        iconSrc: '/images/icons/services/portfolio-web.svg',
-        title: 'Portfolio web interactivo',
-        content: 'Creamos una web profesional para destacar tu trabajo especializado y tu imagen personal.',
-    },
-    {
-        iconSrc: '/images/icons/services/sistemas-stock.svg',
-        title: 'Sistemas de stock',
-        content: 'Desarrollamos sistemas a medida para organizar productos, pedidos y procesos internos.',
-    },
-];
-const serviciosLoop = [...servicios, ...servicios, ...servicios];
+import { services } from "../../data/services";
+import { site } from "../../data/site";
 ---
 
-<!-- Solutions One Start -->
-<section class="solutions-one" id="services">
-    <div class="container">
-        <div class="section-title text-center">
-            <div class="section-title__tagline-box">
-                <span class="section-title__tagline">Servicios</span>
-            </div>
-            <h2 class="section-title__title">Nuestros servicios <br>
-                para ayudar a tu emprendimiento</h2>
-        </div>
-
-        <div class="services-carousel-shell">
-            <div class="solutions-one__carousel" id="service-carousel" tabindex="0" role="region" aria-label="Carrusel infinito de servicios" data-slide-count={servicios.length}>
-                {serviciosLoop.map((servicio, index) => (
-                    <div class="service-slide" aria-hidden={index < servicios.length || index >= servicios.length * 2 ? 'true' : 'false'}>
-                        <Card {...servicio} />
-                    </div>
-                ))}
-            </div>
-
-            <div class="services-carousel-controls" aria-label="Controles del carrusel de servicios">
-                <button type="button" class="services-carousel-button" data-carousel-prev aria-label="Servicio anterior">
-                    <span class="icon-left-arrow" aria-hidden="true"></span>
-                </button>
-                <div class="services-carousel-dots" aria-label="Servicios">
-                    {servicios.map((servicio, index) => (
-                        <button
-                            type="button"
-                            class="services-carousel-dot"
-                            data-carousel-dot={index}
-                            aria-label={`Ver ${servicio.title}`}
-                            aria-current={index === 0 ? 'true' : 'false'}
-                        ></button>
-                    ))}
-                </div>
-                <button type="button" class="services-carousel-button" data-carousel-next aria-label="Servicio siguiente">
-                    <span class="icon-right-arrow" aria-hidden="true"></span>
-                </button>
-            </div>
-        </div>
+<section
+  id="services"
+  class="section theme-light"
+  aria-labelledby="services-heading"
+>
+  <div class="shell">
+    <p class="eyebrow section-rule">QUÉ PODEMOS HACER</p><div
+      class="section-intro"
+      data-reveal
+    >
+      <h2 id="services-heading" class="display-title">
+        Tu negocio,<br />el punto de partida.
+      </h2><p>
+        Contanos qué necesitás resolver. Proponemos la combinación de
+        desarrollo, diseño, automatización e inteligencia artificial que tenga
+        sentido para tu proyecto.
+      </p>
     </div>
+    <div class="service-list">
+      {
+        services.map((service, i) => (
+          <details name="services" open={i === 0} class="service">
+            <>
+              <summary>
+                <>
+                  <span class="row-number">0{i + 1}</span>
+                  <h3>{service.title}</h3>
+                  <span class="service-purpose">{service.purpose}</span>
+                  <span class="disclosure-mark" aria-hidden="true">
+                    +
+                  </span>
+                </>
+              </summary>
+              <div class="service-body">
+                <p class="service-description">{service.description}</p>
+                <ul class="tags">
+                  {service.examples.map((example) => (
+                    <li>{example}</li>
+                  ))}
+                </ul>
+                {service.scope && <p class="scope-note">{service.scope}</p>}
+              </div>
+            </>
+          </details>
+        ))
+      }
+    </div>
+    <div class="open-project">
+      <div>
+        <h3>¿Tu proyecto es diferente?</h3><p>
+          Contanos qué necesitás resolver. Evaluamos la viabilidad y el alcance.
+        </p>
+      </div><a class="button" href={site.whatsapp}
+        >Conversemos <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
 </section>
-
-<style>
-    .services-carousel-shell {
-        position: relative;
-    }
-
-    #service-carousel {
-        display: flex;
-        gap: 24px;
-        overflow-x: auto;
-        overscroll-behavior-x: contain;
-        scroll-snap-type: x proximity;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding: 14px 2px 18px;
-        scroll-behavior: smooth;
-    }
-
-    #service-carousel::-webkit-scrollbar {
-        display: none;
-    }
-
-    .service-slide {
-        flex: 0 0 min(85vw, 320px);
-        scroll-snap-align: start;
-        min-width: 0;
-    }
-
-    .service-slide :global(.solutions-one__single) {
-        height: 100%;
-    }
-
-    .services-carousel-controls {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        margin-top: 34px;
-    }
-
-    .services-carousel-button,
-    .services-carousel-dot {
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--thm-white);
-        transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-    }
-
-    .services-carousel-button {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .services-carousel-dots {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .services-carousel-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        padding: 0;
-    }
-
-    .services-carousel-button:hover,
-    .services-carousel-button:focus-visible,
-    .services-carousel-dot[aria-current="true"] {
-        border-color: var(--thm-base, #FF6C1E);
-        background: var(--thm-base, #FF6C1E);
-        color: var(--thm-black);
-    }
-
-    @media only screen and (min-width: 768px) {
-        .service-slide {
-            flex-basis: clamp(300px, 45vw, 520px);
-        }
-    }
-
-    @media only screen and (min-width: 1200px) {
-        .service-slide {
-            flex-basis: clamp(320px, 28vw, 380px);
-        }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        #service-carousel {
-            scroll-behavior: auto;
-        }
-
-        .services-carousel-button,
-        .services-carousel-dot {
-            transition: none;
-        }
-    }
-</style>
-
-<script>
-    import { Blossom } from '@blossom-carousel/core';
-    import '@blossom-carousel/core/style.css';
-
-    const carousel = document.querySelector('#service-carousel');
-    const prevButton = document.querySelector('[data-carousel-prev]');
-    const nextButton = document.querySelector('[data-carousel-next]');
-    const dots = Array.from(document.querySelectorAll('[data-carousel-dot]'));
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (carousel instanceof HTMLElement) {
-        const blossom = Blossom(carousel, { repeat: false });
-        blossom.init();
-
-        const slides = Array.from(carousel.children).filter((child) => child instanceof HTMLElement);
-        const baseSlideCount = Number(carousel.dataset.slideCount || dots.length);
-        const middleStart = baseSlideCount;
-        const getSlideStep = () => {
-            const firstSlide = slides[0];
-            if (!(firstSlide instanceof HTMLElement)) return 0;
-            const gap = Number.parseFloat(window.getComputedStyle(carousel).columnGap || '0');
-            return firstSlide.getBoundingClientRect().width + gap;
-        };
-
-        const jumpToMiddle = () => {
-            const step = getSlideStep();
-            if (!step) return;
-            carousel.scrollLeft = step * middleStart;
-        };
-
-        jumpToMiddle();
-        window.addEventListener('resize', () => window.requestAnimationFrame(jumpToMiddle));
-
-        const getCurrentIndex = () => {
-            const carouselRect = carousel.getBoundingClientRect();
-            let closestIndex = 0;
-            let closestDistance = Number.POSITIVE_INFINITY;
-
-            slides.forEach((slide, index) => {
-                const slideRect = slide.getBoundingClientRect();
-                const distance = Math.abs(slideRect.left - carouselRect.left);
-                if (distance < closestDistance) {
-                    closestDistance = distance;
-                    closestIndex = index;
-                }
-            });
-
-            return closestIndex % dots.length;
-        };
-
-        const normalizeLoopPosition = () => {
-            const step = getSlideStep();
-            if (!step) return;
-
-            const leftLimit = step * 0.5;
-            const rightLimit = step * (baseSlideCount * 2 + 0.5);
-            const middleOffset = step * baseSlideCount;
-
-            if (carousel.scrollLeft < leftLimit) {
-                carousel.scrollLeft += middleOffset;
-            } else if (carousel.scrollLeft > rightLimit) {
-                carousel.scrollLeft -= middleOffset;
-            }
-        };
-
-        const updateDots = () => {
-            const currentIndex = getCurrentIndex();
-            dots.forEach((dot, index) => {
-                dot.setAttribute('aria-current', String(index === currentIndex));
-            });
-        };
-
-        const scrollBySlide = (direction) => {
-            const step = getSlideStep();
-            if (!step) return;
-            carousel.scrollBy({
-                left: direction * step,
-                behavior: reduceMotion ? 'auto' : 'smooth',
-            });
-        };
-
-        const movePrevious = () => {
-            const before = carousel.scrollLeft;
-            blossom.prev({ align: 'start' });
-            window.setTimeout(() => {
-                if (Math.abs(carousel.scrollLeft - before) < 2) scrollBySlide(-1);
-            }, 80);
-        };
-
-        const moveNext = () => {
-            const before = carousel.scrollLeft;
-            blossom.next({ align: 'start' });
-            window.setTimeout(() => {
-                if (Math.abs(carousel.scrollLeft - before) < 2) scrollBySlide(1);
-            }, 80);
-        };
-
-        prevButton?.addEventListener('click', movePrevious);
-        nextButton?.addEventListener('click', moveNext);
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                const target = slides[index + middleStart];
-                if (target instanceof HTMLElement) {
-                    target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest', inline: 'start' });
-                }
-            });
-        });
-
-        carousel.addEventListener('scroll', () => window.requestAnimationFrame(() => {
-            normalizeLoopPosition();
-            updateDots();
-        }), { passive: true });
-        carousel.addEventListener('scrollsnapchange', updateDots);
-        updateDots();
-
-        if (!reduceMotion) {
-            let autoplay = window.setInterval(moveNext, 4500);
-            const pause = () => window.clearInterval(autoplay);
-            const resume = () => {
-                window.clearInterval(autoplay);
-                autoplay = window.setInterval(moveNext, 4500);
-            };
-
-            carousel.addEventListener('mouseenter', pause);
-            carousel.addEventListener('mouseleave', resume);
-            carousel.addEventListener('focusin', pause);
-            carousel.addEventListener('focusout', resume);
-        }
-    }
-</script>

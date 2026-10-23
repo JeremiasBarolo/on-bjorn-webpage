@@ -1,225 +1,91 @@
-﻿---
-import Header from '../components/shared/Header.astro'
-import Footer from '../components/shared/Footer.astro'
-
-type JsonLd = Record<string, unknown>;
-
+---
+import Header from "../components/shared/Header.astro";
+import Footer from "../components/shared/Footer.astro";
+import { site } from "../data/site";
+import "../styles/global.css";
 interface Props {
-	title?: string;
-	description?: string;
-	ogImage?: string;
-	canonical?: string;
-	noindex?: boolean;
-	schema?: JsonLd | JsonLd[];
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
-
-const siteUrl = 'https://onbjorn.com';
 const {
-	title = 'ON BJORN - Desarrollo web y diseño para emprendedores',
-	description = 'Agencia de desarrollo web, e-commerce y rebranding en Buenos Aires. Potenciá tu emprendimiento online.',
-	ogImage = '/images/og-default.jpg',
-	canonical,
-	noindex = false,
-	schema,
+  title = "ON BJORN — Soluciones digitales a medida",
+  description = site.description,
+  ogImage = "/images/og-on-bjorn.jpg",
+  canonical,
+  noindex = false,
+  schema,
 } = Astro.props;
-
-const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
-const absoluteOgImage = new URL(ogImage, siteUrl).toString();
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).href;
+const imageUrl = new URL(ogImage, site.url).href;
 const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
 ---
 
 <!doctype html>
-<html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="theme-color" content="#111022" />
-		<meta name="generator" content={Astro.generator} />
-		{noindex && <meta name="robots" content="noindex, nofollow" />}
-		<link rel="canonical" href={canonicalUrl} />
-		<link rel="icon" href="/images/resource/ON_BJORN_ISO.png" type="image/png" sizes="512x512" />
-		<link rel="apple-touch-icon" href="/images/resource/ON_BJORN_ISO.png" />
-		<title>{title}</title>
-
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:image" content={absoluteOgImage} />
-		<meta property="og:url" content={canonicalUrl} />
-		<meta property="og:type" content="website" />
-		<meta property="og:locale" content="es_AR" />
-		<meta property="og:site_name" content="ON BJORN" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={absoluteOgImage} />
-
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-		<link href="/css/color-themes/default-color.css" rel="stylesheet">
-		<link href="/css/color-switcher-design.css" rel="stylesheet">
-
-		<link href="/css/bootstrap.css" rel="stylesheet">
-		<link href="/css/style.css" rel="stylesheet">
-		<link href="/css/responsive.css" rel="stylesheet">
-
-		{schemas.map((schemaItem) => (
-			<script type="application/ld+json" set:html={JSON.stringify(schemaItem)} />
-		))}
-	</head>
-	<body class="body-bg-color">
-		<a href="#main-content" class="skip-link">Ir al contenido principal</a>
-		<div class="page-wrapper">
-			<Header />
-			<slot />
-		</div>
-		
-		<Footer />
-		<script>
-			import '../scripts/scroll';
-		</script>
-	</body>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#101113" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      rel="preload"
+      href="/fonts/manrope-latin-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/space-grotesk-latin-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalUrl} />
+    <link
+      rel="icon"
+      href="/images/resource/ON_BJORN_ISO.png"
+      type="image/png"
+    />
+    <link rel="apple-touch-icon" href="/images/resource/ON_BJORN_ISO.png" />
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta
+      property="og:image:alt"
+      content="ON BJORN — Soluciones digitales a medida"
+    />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content={site.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    {
+      schemas.map((item) => (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(item).replace(/</g, "\\u003c")}
+        />
+      ))
+    }
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Ir al contenido principal</a>
+    <Header />
+    <main id="main-content"><slot /></main>
+    <Footer />
+    <script>
+      import "../scripts/scroll";
+    </script>
+  </body>
 </html>
-<style is:global>
-	html {
-		color-scheme: dark;
-		overscroll-behavior: none;
-	}
-
-	body {
-		overscroll-behavior: none;
-	}
-
-	h1, h2, h3, h4, h5, h6 {
-		text-wrap: balance;
-	}
-
-	p {
-		text-wrap: pretty;
-	}
-
-	[id] {
-		scroll-margin-top: 100px;
-	}
-
-	a, button {
-		touch-action: manipulation;
-	}
-
-	.skip-link {
-		position: absolute;
-		top: -100%;
-		left: 16px;
-		z-index: 10000;
-		padding: 8px 16px;
-		background: var(--thm-base, #FF6C1E);
-		color: #fff;
-		border-radius: 4px;
-		font-weight: 600;
-		text-decoration: none;
-	}
-
-	.skip-link:focus {
-		top: 16px;
-	}
-
-	:focus-visible {
-		outline: 2px solid var(--thm-base, #FF6C1E) !important;
-		outline-offset: 2px;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		*,
-		*::before,
-		*::after {
-			animation-duration: 0.01ms !important;
-			animation-iteration-count: 1 !important;
-			transition-duration: 0.01ms !important;
-			scroll-behavior: auto !important;
-		}
-	}
-
-	/* Restaurar colores de componentes sobre fondo oscuro */
-	.team-one__name,
-	.ai-product__title,
-	.solutions-one__title {
-		color: var(--thm-white);
-	}
-
-	.feature-one__icon h2 {
-		font-size: 48px;
-		line-height: 58px;
-		margin: 0;
-	}
-
-	.solutions-one__icon h2 {
-		font-size: 48px;
-		line-height: 1;
-		margin: 0;
-	}
-
-	/* Imágenes: reservar proporción sin forzar tamaño de render */
-	img {
-		max-width: 100%;
-		height: auto;
-	}
-
-	.feature-one__start-1 img,
-	.feature-one__start-2 img,
-	.feature-one__start-3 img,
-	.feature-one__start-4 img,
-	.feature-one__start-5 img,
-	.feature-one__start-6 img,
-	.feature-one__start-7 img,
-	.feature-one__start-8 img,
-	.free-trail__start-1 img,
-	.free-trail__start-2 img,
-	.free-trail__start-3 img,
-	.free-trail__start-4 img {
-		width: auto;
-		height: auto;
-	}
-
-	.ai-product__icon i {
-		font-size: 56px;
-		line-height: 1;
-		color: var(--thm-base);
-	}
-
-	.faq-one {
-		padding: 100px 0 120px;
-	}
-
-	.free-trail {
-		padding-bottom: 60px;
-	}
-
-	.section-title {
-		margin-bottom: 64px;
-	}
-
-	.section-title__tagline-box {
-		margin-bottom: 18px;
-	}
-
-	.section-title__title {
-		line-height: 1.22;
-	}
-
-	.section-title__title + p,
-	.section-title + p {
-		margin-top: 18px;
-	}
-
-	.solutions-two__content-one-points li .text p {
-		color: var(--thm-gray);
-	}
-
-	h1.page-title__title,
-	h2.page-title__title,
-	h3.page-title__title {
-		color: var(--thm-white);
-	}
-</style>

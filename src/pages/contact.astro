@@ -1,139 +1,53 @@
-﻿---
-import Layout from '../layouts/Layout.astro';
+---
+import Layout from "../layouts/Layout.astro";
+import Preguntas from "../components/inicio/Preguntas.astro";
+import { site } from "../data/site";
 ---
 
 <Layout
-	title="Contacto - ON BJORN"
-	description="Escribinos para empezar tu proyecto web. Desarrollo web, e-commerce y rebranding en Buenos Aires."
+  title="Contacto — Contanos tu proyecto | ON BJORN"
+  description="Contanos qué necesitás resolver. Contactá a ON BJORN por WhatsApp o email para evaluar tu proyecto y preparar una propuesta a medida."
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contacto ON BJORN",
+    url: site.url + "/contact",
+  }}
 >
-	<main id="main-content">
-		<section class="page-title">
-			<div class="container">
-				<div class="page-title__inner">
-					<div class="page-title__shape-1"
-						style="background-image: url(/images/shapes/page-title-shape-1.png);" aria-hidden="true"></div>
-					<div class="page-title__title-box">
-						<h1 class="page-title__title">
-							Estamos esperando <br> 
-							crear tu idea.
-						</h1>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="contact-one">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-5 col-lg-6">
-						<div class="contact-one__left">
-							<div class="contact-one__left-content">
-								<div class="contact-one__title-box">
-									<h2>Escribinos por nuestras <br> redes sociales</h2>
-									<p>Las grandes ideas comienzan por un sueño, y nosotros somos quienes las convertimos en realidad.</p>
-								</div>
-								<ul class="contact-one__contact-list">
-									<li>
-										<div class="icon">
-											<span class="icon-call" aria-hidden="true"></span>
-										</div>
-										<div class="text">
-											<p>
-												<a href="tel:+541168204445">+54 11 6820 4445</a>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="icon">
-											<span class="icon-map" aria-hidden="true"></span>
-										</div>
-										<div class="text">
-											<p>Buenos Aires, Argentina.</p>
-										</div>
-									</li>
-									<li>
-										<div class="icon">
-											<span class="icon-envelope" aria-hidden="true"></span>
-										</div>
-										<div class="text">
-											<p>
-												<a href="mailto:barolojeremias@gmail.com">barolojeremias@gmail.com</a>
-											</p>
-										</div>
-									</li>
-								</ul>
-								<div class="contact-one__social">
-									<a href="https://github.com/JeremiasBarolo" target="_blank" rel="noopener noreferrer" aria-label="GitHub de ON BJORN"><span class="icon-social-1" aria-hidden="true"></span></a>
-									<a href="https://www.instagram.com/on_bjorn/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ON BJORN"><span class="icon-social-5" aria-hidden="true"></span></a>
-									<a href="https://www.linkedin.com/in/jeremias-barolo-721083250" target="_blank" rel="noopener noreferrer" class="icon-social" aria-label="LinkedIn de Jeremias Barolo">
-										<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin" aria-hidden="true">
-											<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-											<path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
-											<path d="M8 11l0 5" />
-											<path d="M8 8l0 .01" />
-											<path d="M12 16l0 -5" />
-											<path d="M16 16v-3a2 2 0 0 0 -4 0" />
-										</svg>
-									</a>
-								</div>
-								<p class="contact-one__response-time">Respondemos en menos de 24 horas hábiles.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-7 col-lg-6 mt-4">
-						<div class="map-container">
-							<iframe 
-								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105073.45340225006!2d-58.515698696010766!3d-34.61565477009822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires%2C%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1715527990118!5m2!1ses-419!2sar" 
-								title="Mapa de ubicación de ON BJORN en Buenos Aires"
-								allowfullscreen
-								loading="lazy" 
-								referrerpolicy="no-referrer-when-downgrade"></iframe>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</main>
+  <section class="section shell page-intro">
+    <p class="eyebrow">HABLEMOS DE TU PROYECTO</p><div class="contact-grid">
+      <div>
+        <h1 class="page-title" data-reveal>
+          Contanos qué<br />querés resolver<span class="blue-dot">.</span>
+        </h1><p class="page-lead">
+          Una idea, una necesidad o algo que hoy te lleva demasiado tiempo.
+          Contanos y evaluamos cómo podemos ayudarte.
+        </p>
+      </div><div class="contact-channels" data-reveal>
+        <div>
+          <p class="eyebrow">EMPECEMOS UNA CONVERSACIÓN</p><a
+            class="button"
+            href={site.whatsapp}>Escribinos por WhatsApp ↗</a
+          ><p>{site.phone}</p>
+        </div><div>
+          <p class="eyebrow">TAMBIÉN POR EMAIL</p><a
+            class="text-link"
+            href={"mailto:" + site.email}>{site.email}</a>
+        </div><div>
+          <p class="eyebrow">ENCONTRANOS EN</p><a
+            class="text-link"
+            href={site.instagram}
+            target="_blank"
+            rel="noopener noreferrer">Instagram ↗</a
+          ><a
+            class="text-link"
+            href={site.linkedin}
+            target="_blank"
+            rel="noopener noreferrer">LinkedIn ↗</a
+          ><p>Buenos Aires, Argentina</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Preguntas />
 </Layout>
-
-<style>
-	.contact-one__title-box h2 {
-		font-size: 40px;
-		font-weight: 600;
-		color: var(--thm-white);
-		line-height: 50px;
-		margin-bottom: 15px;
-	}
-
-	.map-container {
-		position: relative;
-		padding-bottom: 56.25%;
-		height: 0;
-		min-height: 300px;
-		overflow: hidden;
-		border-radius: 8px;
-	}
-	
-	.map-container iframe {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		border: 0;
-	}
-
-	.contact-one {
-		padding-bottom: 80px;
-	}
-
-	.contact-one__response-time {
-		margin-top: 24px;
-		color: var(--thm-base, #FF6C1E);
-		font-weight: 600;
-	}
-
-	.page-title {
-		padding-bottom: 40px;
-	}
-</style>
